@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HeyPercentage - Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/myicon.png">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <img src="logo.png" alt="HeyPercentage Logo" class="logo">
+        <h1><span class="highlight">Hey</span>Percentage</h1>
+      </div>
+      <nav>
+        <ul>
+          <li class="current"><a href="index.html">HOME</a></li>
+          <li><a href="socials.html">SOCIALS</a></li>
+          <li><a href="support.html">SUPPORT ME</a></li>
+          <li><a href="teasers.html">TEASERS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+  <section id="showcase">
+    <div class="container">
+      <h1>Who is HeyPercentage</h1>
+      <p>
+        HeyPercentage is a South African Music Producer, Songwriter and Artist who started to wonder about music Production in late 2020. His music style is a mix of Genres like: Hip-hop, Emo Rap, Melodic Rap, Hyperpop, Rock, Pluggnb, Pop Punk, Pop.
+      </p>
+    </div>
+  </section>
+  <main>
+  <section id="newsletter">
+    <div class="container">
+      <h1>Subscribe To Get Notified When I Drop A New Song</h1>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Enter Email..." required>
+        <button type="submit" class="button_1">Subscribe</button>
+      </form>
+    </div>
+  </section>
+  <main>
+  <footer>
+    <p>HeyPercentage, Copyright &copy; 2026</p>
+  </footer>
+
+  <script>
+    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thanks for subscribing! You\'ll get notified when I drop a new song.');
+      this.reset();
+    });
+  </script>
+</body>
+  </html>
