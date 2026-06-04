@@ -1,59 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HeyPercentage - Home</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="img/myicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeyPercentage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div id="branding">
-        <img src="logo.png" alt="HeyPercentage Logo" class="logo">
-        <h1><span class="highlight">Hey</span>Percentage</h1>
-      </div>
-      <nav>
-        <ul>
-          <li class="current"><a href="index.html">HOME</a></li>
-          <li><a href="socials.html">SOCIALS</a></li>
-          <li><a href="support.html">SUPPORT ME</a></li>
-          <li><a href="teasers.html">TEASERS</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main>
-  <section id="showcase">
-    <div class="container">
-      <h1>Who is HeyPercentage</h1>
-      <p>
-        HeyPercentage is a South African Music Producer, Songwriter and Artist who started to wonder about music Production in late 2020. His music style is a mix of Genres like: Hip-hop, Emo Rap, Melodic Rap, Hyperpop, Rock, Pluggnb, Pop Punk, Pop.
-      </p>
-    </div>
-  </section>
-  <main>
-  <section id="newsletter">
-    <div class="container">
-      <h1>Subscribe To Get Notified When I Drop A New Song</h1>
-      <form id="newsletter-form">
-        <input type="email" placeholder="Enter Email..." required>
-        <button type="submit" class="button_1">Subscribe</button>
-      </form>
-    </div>
-  </section>
-  <main>
-  <footer>
-    <p>HeyPercentage, Copyright &copy; 2026</p>
-  </footer>
 
-  <script>
-    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thanks for subscribing! You\'ll get notified when I drop a new song.');
-      this.reset();
+    <div class="live-wallpaper"></div>
+
+    <div class="interface-wrapper">
+        
+        <header>
+            <div class="header-container">
+                <div id="branding">
+                    <img src="logo.png" alt="HeyPercentage Logo" class="logo">
+                    <h1><span class="highlight">Hey</span>Percentage</h1>
+                </div>
+
+                <nav>
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#socials" class="nav-link">Streaming & Socials</a>
+                    <a href="#teasers" class="nav-link">The Vault</a>
+                    <a href="#support" class="nav-link">Support</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="content-window">
+            
+            <!-- HOME SECTION -->
+            <section id="home" class="page-section active">
+                <div class="hero-card">
+                    <h2>Who is HeyPercentage?</h2>
+                    <p class="bio-text">
+                        HeyPercentage is a South African Music Producer, Songwriter and Artist who started to wonder about music Production in late 2020. His music style is a masterclass blend of genres, mixing elements of Hip-hop, Emo Rap, Melodic Rap, Hyperpop, Rock, Pluggnb, Pop Punk, and Pop.
+                    </p>
+                    <div class="cta-group">
+                        <a href="#socials" class="btn-primary">Stream Latest Release</a>
+                        <a href="#teasers" class="btn-secondary">Explore Teasers</a>
+                    </div>
+                </div>
+
+                <div class="newsletter-card">
+                    <h3>Join The Inner Circle</h3>
+                    <p>Get immediate ping alerts the exact second a new track drops.</p>
+                    <form class="newsletter-input-group">
+                        <input type="email" placeholder="Your email address..." required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- SOCIALS & STREAMING SECTION -->
+            <section id="socials" class="page-section">
+                <h2 class="section-title">Streaming & Social Ecosystem</h2>
+                <div class="grid-container">
+                    <a href="https://open.spotify.com/artist/2G4rkM6CJnpwQZNrE0D1Uw?si=y1GGBdpjT12ueOBthx2rjA" target="_blank" rel="noopener" class="hub-tile spotify-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-spotify"></i></div>
+                        <h3>Spotify</h3>
+                        <span>Listen Now</span>
+                    </a>
+                    <a href="https://music.apple.com/us/artist/heypercentage/1795136673" target="_blank" rel="noopener" class="hub-tile apple-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-apple"></i></div>
+                        <h3>Apple Music</h3>
+                        <span>Stream Tracks</span>
+                    </a>
+                    <a href="https://music.youtube.com/channel/UCfJFq6Ibo0STEtTn9_5g2BA?si=V-c7_aTkZlK68Hop" target="_blank" rel="noopener" class="hub-tile ytm-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-youtube"></i></div>
+                        <h3>YouTube Music</h3>
+                        <span>Listen Live</span>
+                    </a>
+                    <a href="https://music.amazon.com/artists/B0DWH7H21Q/heypercentage?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_bKOtRivKAafsrQoZs3dON8YWG" target="_blank" rel="noopener" class="hub-tile amazon-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-amazon"></i></div>
+                        <h3>Amazon</h3>
+                        <span>Stream Music</span>
+                    </a>
+                    <a href="https://tidal.com/artist/54130272/u" target="_blank" rel="noopener" class="hub-tile tidal-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-tidal"></i></div>
+                        <h3>Tidal</h3>
+                        <span>Hi-Fi Audio</span>
+                    </a>
+                    <a href="https://m.youtube.com/@HeyPercentage?sub_confirmation=1" target="_blank" rel="noopener" class="hub-tile youtube-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-youtube"></i></div>
+                        <h3>YouTube</h3>
+                        <span>Subscribe</span>
+                    </a>
+                    <a href="https://www.instagram.com/hey.percentage" target="_blank" rel="noopener" class="hub-tile instagram-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-instagram"></i></div>
+                        <h3>Instagram</h3>
+                        <span>Follow Feed</span>
+                    </a>
+                    <a href="https://www.tiktok.com/heypercentage" target="_blank" rel="noopener" class="hub-tile tiktok-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-tiktok"></i></div>
+                        <h3>TikTok</h3>
+                        <span>Watch Clips</span>
+                    </a>
+                </div>
+            </section>
+
+<!-- THE MUSIC VAULT SECTION -->
+<section id="teasers" class="page-section">
+    <h2 class="section-title">The Music Vault</h2>
+    <div class="vault-grid">
+        <div class="vault-card status-released">
+            <!-- Swapped emoji div for a real image element -->
+            <img src="img/out.jpg" alt="Twilight" class="vault-cover">
+            <div class="vault-info">
+                <h4>Twilight</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </div>
+        <div class="vault-card status-production">
+            
+            <img src="img/next.jpg" alt="Trust Issues" class="vault-cover">
+            <div class="vault-info">
+                <h4>Trust Issues (ft. Luvarzy)</h4>
+                <span class="badge">Next Release</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+            <!-- SUPPORT SECTION -->
+            <section id="support" class="page-section">
+                <div class="support-card">
+                    <h2>Fuel the Production</h2>
+                    <p>Independently creating and mixing music requires resources. Your support directly funds studio software, equipment upgrades, and independent release distribution.</p>
+                    <a href="https://paypal.me/HeyPercentage" target="_blank" rel="noopener" class="paypal-btn">
+                        <span>Secure Support via PayPal</span>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>HeyPercentage &copy; 2026 | Vibe Til' Hunnid</p>
+        </footer>
+    </div>
+
+    <script>
+    // Master function to handle clean visual section switching
+    function switchTab(targetId) {
+        const links = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.page-section');
+
+        // 1. Remove active visibility from all header links and page wrappers
+        links.forEach(l => l.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+
+        // 2. Open up the target container seamlessly
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
+
+        // 3. Highlight the matching navigation tab up in the header menu automatically
+        const matchingHeaderLink = document.querySelector(`.nav-link[href="${targetId}"]`);
+        if (matchingHeaderLink) {
+            matchingHeaderLink.classList.add('active');
+        }
+    }
+
+    // INTERCEPT RULES FOR NAV BAR MENU LINKS
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchTab(this.getAttribute('href'));
+        });
     });
-  </script>
+
+    // INTERCEPT RULES FOR INNER-PAGE BUTTON LINKS (Like "Explore Teasers")
+    document.querySelectorAll('.cta-group a').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const targetDestination = this.getAttribute('href');
+            
+            // Only take over if it's pointing to an internal layout target block starting with '#'
+            if (targetDestination.startsWith('#')) {
+                e.preventDefault();
+                switchTab(targetDestination);
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Resets page focus cleanly to the top
+            }
+        });
+    });
+</script>
+
 </body>
-  </html>
+</html>
