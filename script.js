@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            switchTab(this.getAttribute('href'));
+            switchTab(this.getAttribute('href').trim());
         });
     });
 
