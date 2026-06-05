@@ -1,74 +1,80 @@
 // ==========================================
 // 1. COUNTDOWN TIMER CONFIGURATION
 // ==========================================
-// CRITICAL: Use the "T" separator format so ALL mobile and desktop browsers can parse it correctly!
+// FIX: The "T" is added here so browsers don't show zeros
 const targetDate = new Date("2026-06-07T12:00:00").getTime(); 
 
 const countdownInterval = setInterval(() => {
     const now = new Date().getTime();
     const difference = targetDate - now;
 
-    // If the countdown is finished
+    // Stop the timer when it hits zero
     if (difference <= 0) {
         clearInterval(countdownInterval);
-        updateCountdownDisplay(0, 0, 0, 0);
+        if (document.getElementById("days")) {
+            document.getElementById("days").innerText = 0;
+            document.getElementById("hours").innerText = 0;
+            document.getElementById("minutes").innerText = 0;
+            document.getElementById("seconds").innerText = 0;
+        }
         return;
     }
 
-    // Time calculations
+    // Time math
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    // Update the UI
-    updateCountdownDisplay(days, hours, minutes, seconds);
+    // Update HTML
+    if (document.getElementById("days")) {
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+    }
 }, 1000);
 
-// Helper function to safely update text elements if they exist
-function updateCountdownDisplay(d, h, m, s) {
-    if (document.getElementById("days")) document.getElementById("days").innerText = d;
-    if (document.getElementById("hours")) document.getElementById("hours").innerText = h;
-    if (document.getElementById("minutes")) document.getElementById("minutes").innerText = m;
-    if (document.getElementById("seconds")) document.getElementById("seconds").innerText = s;
-}
-
-
 // ==========================================
-// 2. NAVIGATION & TAB SWITCHING
+// 2. NAVIGATION LINKS (Around Line 30 & 37)
 // ==========================================
 
-// Line 30 Area: Header Navigation Links
+// FIX: .trim() added to header navigation links
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
         const rawHref = this.getAttribute('href');
         if (rawHref) {
-            switchTab(rawHref.trim()); // Trimmed safely
+            switchTab(rawHref.trim()); 
         }
     });
 });
 
-// Line 37 Area: Action Buttons / Home Screen Buttons
-document.querySelectorAll('.hero-btn, .section-btn').forEach(button => {
+// FIX: .trim() added to your page buttons
+document.querySelectorAll('a[href^="#"]').forEach(button => {
+    // This targets any button/link that starts with "#" to catch your home buttons
     button.addEventListener('click', function(e) {
         e.preventDefault();
         const rawHref = this.getAttribute('href');
         if (rawHref) {
-            const targetDestination = rawHref.trim(); // Trimmed safely
-            switchTab(targetDestination);
+            switchTab(rawHref.trim());
         }
     });
 });
 
-// Your core switchTab mechanism
+// ==========================================
+// 3. YOUR ORIGINAL TAB SWITCHER
+// ==========================================
 function switchTab(targetId) {
-    // Your existing logic that hides other sections and shows the targetId
-    console.log("Navigating to:", targetId);
+    // Paste your original switchTab logic from the PDF right here.
+    // Usually, it looks something like finding all sections, hiding them, 
+    // and then showing the one that matches 'targetId'.
+    
+    const sections = document.querySelectorAll('.page-section'); // or whatever class you use
+    sections.forEach(section => section.style.display = 'none');
     
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
-        // Example logic: handle class toggles or scrolling here
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        targetElement.style.display = 'block';
     }
 }
