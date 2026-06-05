@@ -9,7 +9,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -35,7 +35,6 @@
 
         <main class="content-window">
             
-            <!-- HOME SECTION -->
             <section id="home" class="page-section active">
                 <div class="hero-card">
                     <h2>Who is HeyPercentage?</h2>
@@ -48,9 +47,15 @@
                     </div>
                 </div>
 
+                <div class="hype-countdown-card">
+                    <span class="hype-label">DROP COUNTDOWN</span>
+                    <h3 class="hype-track-title">Trust Issues <span class="collab">(ft. Luvarzy)</span></h3>
+                    <div class="countdown-digits" id="main-hype-clock">00d : 00h : 00m : 00s</div>
+                </div>
+
                 <div class="newsletter-card">
-                    <h3>Join The Vibes</h3>
-                    <p>Get notified when I release A new song</p>
+                    <h3>Join The Crew</h3>
+                    <p>Get Notified When New Tracks Release.</p>
                     <form class="newsletter-input-group">
                         <input type="email" placeholder="Your email address..." required>
                         <button type="submit">Subscribe</button>
@@ -58,9 +63,8 @@
                 </div>
             </section>
 
-            <!-- SOCIALS & STREAMING SECTION -->
             <section id="socials" class="page-section">
-                <h2 class="section-title">Streaming & Social Ecosystem</h2>
+                <h2 class="section-title">Streaming & Social Hub</h2>
                 <div class="grid-container">
                     <a href="https://open.spotify.com/artist/2G4rkM6CJnpwQZNrE0D1Uw?si=y1GGBdpjT12ueOBthx2rjA" target="_blank" rel="noopener" class="hub-tile spotify-tile">
                         <div class="tile-icon"><i class="fa-brands fa-spotify"></i></div>
@@ -72,7 +76,7 @@
                         <h3>Apple Music</h3>
                         <span>Stream Tracks</span>
                     </a>
-                    <a href="https://music.youtube.com/channel/UCfJFq6Ibo0STEtTn9_5g2BA?si=V-c7_aTkZlK68Hop" target="_blank" rel="noopener" class="hub-tile ytm-tile">
+                    <a href="https://music.youtube.com/channel/UCfJFq6lbo0STEtTn9_5g2BA?si=V-c7_aTkZIK68Hop" target="_blank" rel="noopener" class="hub-tile ytm-tile">
                         <div class="tile-icon"><i class="fa-brands fa-youtube"></i></div>
                         <h3>YouTube Music</h3>
                         <span>Listen Live</span>
@@ -105,34 +109,30 @@
                 </div>
             </section>
 
-<!-- THE MUSIC VAULT SECTION -->
-<section id="teasers" class="page-section">
-    <h2 class="section-title">The Music Vault</h2>
-    <div class="vault-grid">
-        <div class="vault-card status-released">
-           
-            <img src="out.jpg" alt="Twilight" class="vault-cover">
-            <div class="vault-info">
-                <h4>Twilight</h4>
-                <span class="badge">Out Now</span>
-            </div>
-        </div>
-        <div class="vault-card status-production">
-            
-            <img src="next.jpg" alt="Trust Issues" class="vault-cover">
-            <div class="vault-info">
-                <h4>Trust Issues (ft. Luvarzy)</h4>
-                <span class="badge">Next Release</span>
-            </div>
-        </div>
-    </div>
-</section>
+            <section id="teasers" class="page-section">
+                <h2 class="section-title">The Music Vault</h2>
+                <div class="vault-grid">
+                    <div class="vault-card status-released">
+                        <img src="out.jpg" alt="Twilight" class="vault-cover">
+                        <div class="vault-info">
+                            <h4>Twilight</h4>
+                            <span class="badge">Out Now</span>
+                        </div>
+                    </div>
+                    <div class="vault-card status-production">
+                        <img src="next.jpg" alt="Trust Issues" class="vault-cover">
+                        <div class="vault-info">
+                            <h4>Trust Issues (ft. Luvarzy)</h4>
+                            <h5 id="vault-countdown">Calculating...</h5>
+                            <span class="badge">Next Release</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-
-            <!-- SUPPORT SECTION -->
             <section id="support" class="page-section">
                 <div class="support-card">
-                    <h2>Fuel the Production</h2>
+                    <h2>PLEASE SUPPORT ME</h2>
                     <p>Independently creating and mixing music requires resources. Your support directly funds studio software, equipment upgrades, and independent release distribution.</p>
                     <a href="https://paypal.me/HeyPercentage" target="_blank" rel="noopener" class="paypal-btn">
                         <span>Secure Support via PayPal</span>
@@ -143,55 +143,10 @@
         </main>
 
         <footer>
-            <p>HeyPercentage &copy; 2026 | Vibe Til' Hunnid</p>
+            <p>HeyPercentage © 2026 | Vibe Til' Hunnid</p>
         </footer>
     </div>
 
-    <script>
-    // Master function to handle clean visual section switching
-    function switchTab(targetId) {
-        const links = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('.page-section');
-
-        // 1. Remove active visibility from all header links and page wrappers
-        links.forEach(l => l.classList.remove('active'));
-        sections.forEach(s => s.classList.remove('active'));
-
-        // 2. Open up the target container seamlessly
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-            targetSection.classList.add('active');
-        }
-
-        // 3. Highlight the matching navigation tab up in the header menu automatically
-        const matchingHeaderLink = document.querySelector(`.nav-link[href="${targetId}"]`);
-        if (matchingHeaderLink) {
-            matchingHeaderLink.classList.add('active');
-        }
-    }
-
-    // INTERCEPT RULES FOR NAV BAR MENU LINKS
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            switchTab(this.getAttribute('href'));
-        });
-    });
-
-    // INTERCEPT RULES FOR INNER-PAGE BUTTON LINKS (Like "Explore Teasers")
-    document.querySelectorAll('.cta-group a').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            const targetDestination = this.getAttribute('href');
-            
-            // Only take over if it's pointing to an internal layout target block starting with '#'
-            if (targetDestination.startsWith('#')) {
-                e.preventDefault();
-                switchTab(targetDestination);
-                window.scrollTo({ top: 0, behavior: 'smooth' }); // Resets page focus cleanly to the top
-            }
-        });
-    });
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
