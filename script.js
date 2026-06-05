@@ -1,6 +1,3 @@
-// ==========================================
-// 1. DUAL COUNTDOWN ENGINE
-// ==========================================
 [span_135](start_span)const targetDate = new Date("2026-06-07T12:00:00").getTime();[span_135](end_span)
 
 const countdownInterval = setInterval(() => {
