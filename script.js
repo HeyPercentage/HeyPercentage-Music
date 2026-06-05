@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            switchTab(this.getAttribute('href').trim());
+            switchTab(this.getAttribute('href').trim();
         });
     });
 
     // INTERCEPT RULES FOR INNER-PAGE BUTTON LINKS (Like "Explore Teasers")
     document.querySelectorAll('.cta-group a').forEach(btn => {
         btn.addEventListener('click', function(e) {
-            const targetDestination = this.getAttribute('href');
+            const targetDestination = this.getAttribute('href').trim();
             
             if (targetDestination && targetDestination.startsWith('#')) {
                 e.preventDefault();
