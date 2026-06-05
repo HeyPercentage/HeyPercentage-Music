@@ -1,80 +1,88 @@
 // ==========================================
-// 1. COUNTDOWN TIMER CONFIGURATION
+// 1. DUAL COUNTDOWN ENGINE
 // ==========================================
-// FIX: The "T" is added here so browsers don't show zeros
-const targetDate = new Date("2026-06-07T12:00:00").getTime(); 
+[span_135](start_span)const targetDate = new Date("2026-06-07T12:00:00").getTime();[span_135](end_span)
 
 const countdownInterval = setInterval(() => {
-    const now = new Date().getTime();
-    const difference = targetDate - now;
+    [span_136](start_span)const now = new Date().getTime();[span_136](end_span)
+    [span_137](start_span)const difference = targetDate - now;[span_137](end_span)
+
+    const mainClock = document.getElementById("main-hype-clock");
+    const vaultClock = document.getElementById("vault-countdown");
 
     // Stop the timer when it hits zero
     if (difference <= 0) {
-        clearInterval(countdownInterval);
-        if (document.getElementById("days")) {
-            document.getElementById("days").innerText = 0;
-            document.getElementById("hours").innerText = 0;
-            document.getElementById("minutes").innerText = 0;
-            document.getElementById("seconds").innerText = 0;
-        }
-        return;
+        [span_138](start_span)clearInterval(countdownInterval);[span_138](end_span)
+        const expiredText = "00d: 00h: 00m: 00s";
+        if (mainClock) mainClock.innerText = expiredText;
+        if (vaultClock) vaultClock.innerText = "Released!";
+        [span_139](start_span)return;[span_139](end_span)
     }
 
     // Time math
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    [span_140](start_span)const days = Math.floor(difference / (1000 * 60 * 60 * 24));[span_140](end_span)
+    [span_141](start_span)const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));[span_141](end_span)
+    [span_142](start_span)const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));[span_142](end_span)
+    [span_143](start_span)const seconds = Math.floor((difference % (1000 * 60)) / 1000);[span_143](end_span)
 
-    // Update HTML
-    if (document.getElementById("days")) {
-        document.getElementById("days").innerText = days;
-        document.getElementById("hours").innerText = hours;
-        document.getElementById("minutes").innerText = minutes;
-        document.getElementById("seconds").innerText = seconds;
-    }
+    // Format numbers to always display 2 digits
+    const dStr = String(days).padStart(2, '0');
+    const hStr = String(hours).padStart(2, '0');
+    const mStr = String(minutes).padStart(2, '0');
+    const sStr = String(seconds).padStart(2, '0');
+
+    const countdownString = `${dStr}d: ${hStr}h: ${mStr}m: ${sStr}s`;
+
+    // Safely update elements if they exist on the current active view
+    if (mainClock) mainClock.innerText = countdownString;
+    if (vaultClock) vaultClock.innerText = countdownString;
 }, 1000);
 
 // ==========================================
-// 2. NAVIGATION LINKS (Around Line 30 & 37)
+// 2. NAVIGATION LINKS
 // ==========================================
-
-// FIX: .trim() added to header navigation links
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const rawHref = this.getAttribute('href');
+[span_144](start_span)document.querySelectorAll('.nav-links a').forEach(link => {[span_144](end_span)
+    [span_145](start_span)link.addEventListener('click', function(e) {[span_145](end_span)
+        [span_146](start_span)e.preventDefault();[span_146](end_span)
+        [span_147](start_span)const rawHref = this.getAttribute('href');[span_147](end_span)
         if (rawHref) {
-            switchTab(rawHref.trim()); 
+            [span_148](start_span)switchTab(rawHref.trim());[span_148](end_span)
         }
     });
 });
 
-// FIX: .trim() added to your page buttons
-document.querySelectorAll('a[href^="#"]').forEach(button => {
-    // This targets any button/link that starts with "#" to catch your home buttons
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        const rawHref = this.getAttribute('href');
+// Target explicit section landing buttons (like your Hero buttons)
+[span_149](start_span)document.querySelectorAll('a[href^="#"]').forEach(button => {[span_149](end_span)
+    [span_150](start_span)button.addEventListener('click', function(e) {[span_150](end_span)
+        [span_151](start_span)e.preventDefault();[span_151](end_span)
+        [span_152](start_span)const rawHref = this.getAttribute('href');[span_152](end_span)
         if (rawHref) {
-            switchTab(rawHref.trim());
+            [span_153](start_span)switchTab(rawHref.trim());[span_153](end_span)
         }
     });
 });
 
 // ==========================================
-// 3. YOUR ORIGINAL TAB SWITCHER
+// 3. TAB SWITCHER LOGIC
 // ==========================================
-function switchTab(targetId) {
-    // Paste your original switchTab logic from the PDF right here.
-    // Usually, it looks something like finding all sections, hiding them, 
-    // and then showing the one that matches 'targetId'.
+[span_154](start_span)function switchTab(targetId) {[span_154](end_span)
+    [span_155](start_span)const sections = document.querySelectorAll('.page-section');[span_155](end_span)
     
-    const sections = document.querySelectorAll('.page-section'); // or whatever class you use
-    sections.forEach(section => section.style.display = 'none');
+    // Hide all sections
+    [span_156](start_span)sections.forEach(section => section.style.display = 'none');[span_156](end_span)
     
-    const targetElement = document.querySelector(targetId);
+    // Show active target section
+    [span_157](start_span)const targetElement = document.querySelector(targetId);[span_157](end_span)
     if (targetElement) {
-        targetElement.style.display = 'block';
+        [span_158](start_span)targetElement.style.display = 'block';[span_158](end_span)
     }
+    
+    // Update active navbar styles state
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('href') === targetId) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 }
