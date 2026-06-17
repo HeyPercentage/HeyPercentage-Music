@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeyPercentage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="live-wallpaper"></div>
+    <div class="interface-wrapper">
+        <header>
+            <div class="header-container">
+                <div id="branding">
+                    <img src="logo.png" alt="HeyPercentage Logo" class="logo">
+                    <h1><span class="highlight">Hey</span>Percentage</h1>
+                </div>
+                <nav class="nav-links">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#socials" class="nav-link">Streaming & Socials</a>
+                    <a href="#all-songs" class="nav-link">All Songs</a>
+                    <a href="#teasers" class="nav-link">The Vault</a>
+                    <a href="#support" class="nav-link">Support</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="content-window">
+            <section id="home" class="page-section active">
+                <div class="hero-card">
+                    <h2>Who is HeyPercentage?</h2>
+                    <p class="bio-text">
+                        HeyPercentage is a South African Music Producer, Songwriter and Artist who started to wonder about music Production in late 2020. His music style is a masterclass blend of genres, mixing elements of Hip-hop, Emo Rap, Melodic Rap, Hyperpop, Rock, Pluggnb, Pop Punk, and Pop.
+                    </p>
+                    <div class="cta-group">
+                        <a href="https://www.push.fm/fl/pti" target="_blank" rel="noopener" class="btn-primary">Stream Latest Release</a>
+                        <a href="#teasers" class="btn-secondary">Explore Teasers</a>
+                    </div>
+                </div>
+
+                <div class="hype-countdown-card" style="display: none;">
+                    <span class="hype-label">DROP COUNTDOWN</span>
+                    <h3 class="hype-track-title">Next Track Title <span class="collab">(ft. Next Artist)</span></h3>
+                    <div class="countdown-digits" id="main-hype-clock">00d: 00h: 00m: 00s</div>
+                </div>
+
+                <div class="newsletter-card">
+                    <h3>Join The Crew</h3>
+                    <p>Get Notified When New Tracks Release.</p>
+                    <form class="newsletter-input-group">
+                        <input type="email" placeholder="Your email address..." required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="socials" class="page-section">
+                <h2 class="section-title">Streaming & Social Hub</h2>
+                <div class="grid-container">
+                    <a href="#" target="_blank" rel="noopener" class="hub-tile spotify-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-spotify"></i></div>
+                        <h3>Spotify</h3>
+                        <span>Listen Now</span>
+                    </a>
+                    <a href="https://music.apple.com/us/artist/heypercentage/1795136673" target="_blank" rel="noopener" class="hub-tile apple-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-apple"></i></div>
+                        <h3>Apple Music</h3>
+                        <span>Stream Tracks</span>
+                    </a>
+                    <a href="https://music.youtube.com/channel/UCfJFq6lbo0STEtTn9_5g2BA?si=V-c7_aTkZIK68Hop" target="_blank" rel="noopener" class="hub-tile ytm-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-youtube"></i></div>
+                        <h3>YouTube Music</h3>
+                        <span>Listen Live</span>
+                    </a>
+                    <a href="https://music.amazon.com/artists/B0DWH7H21Q/heypercentage?marketplaceId=ATVPDKIKXODER&musicTerritory=US&ref=dm_sh_bKOtRivKAafsrQoZs3dON8YWG" target="_blank" rel="noopener" class="hub-tile amazon-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-amazon"></i></div>
+                        <h3>Amazon</h3>
+                        <span>Stream Music</span>
+                    </a>
+                    <a href="https://tidal.com/artist/54130272/u" target="_blank" rel="noopener" class="hub-tile tidal-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-tidal"></i></div>
+                        <h3>Tidal</h3>
+                        <span>Hi-Fi Audio</span>
+                    </a>
+                    <a href="https://m.youtube.com/@HeyPercentage?sub_confirmation=1" target="_blank" rel="noopener" class="hub-tile youtube-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-youtube"></i></div>
+                        <h3>YouTube</h3>
+                        <span>Subscribe</span>
+                    </a>
+                    <a href="https://www.instagram.com/hey.percentage" target="_blank" rel="noopener" class="hub-tile instagram-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-instagram"></i></div>
+                        <h3>Instagram</h3>
+                        <span>Follow Feed</span>
+                    </a>
+                    <a href="https://www.tiktok.com/heypercentage" target="_blank" rel="noopener" class="hub-tile tiktok-tile">
+                        <div class="tile-icon"><i class="fa-brands fa-tiktok"></i></div>
+                        <h3>TikTok</h3>
+                        <span>Watch Clips</span>
+                    </a>
+                </div>
+            </section>
+
+            <section id="teasers" class="page-section">
+                <h2 class="section-title">The Music Vault</h2>
+                <div class="vault-grid">
+                    <a href="https://push.fm/fl/your-trust-issues-link" target="_blank" rel="noopener" class="vault-card status-production">
+                        <img src="next.jpg" alt="Trust Issues" class="vault-cover">
+                        <div class="vault-info">
+                            <h4>Trust Issues</h4> <h6>(ft. Luvarzy)</h6>
+                            <h5 id="vault-countdown">Calculating...</h5>
+                            <span class="badge">Next Release</span>
+                        </div>
+                    </a>
+       
+       <div class="custom-audio-player">
+  <audio id="myAudio" src="snipp.wav"></audio>
+  
+  <div class="controls">
+    <button id="back10" class="btn skip-btn">＜ 10s</button>
+    <button id="playPause" class="btn play-btn">▶ Play</button>
+    <button id="fwd10" class="btn skip-btn">10s ＞</button>
+  </div>
+
+  <div class="progress-wrap">
+    <span id="currentTime">0:00</span>
+    <div class="progress-container" id="progressContainer">
+      <div class="progress-bar" id="progressBar"></div>
+      <div class="progress-thumb" id="progressThumb"></div>
+    </div>
+    <span id="duration">0:00</span>
+  </div>
+
+  <div class="volume-wrap">
+    <span>🔉</span>
+    <div class="volume-container" id="volumeContainer">
+      <div class="volume-bar" id="volumeBar"></div>
+    </div>
+  </div>
+</div>
+        
+               
+            </section>
+            
+            <section id="all-songs" class="page-section">
+    <h2 class="section-title">All Songs</h2>
+    
+    <div class="search-wrap">
+        <input type="text" id="songSearch" placeholder="Search song or artist">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    </div>
+
+    <div class="vault-grid" id="songsGrid">
+        
+        <a href="https://push.fm/fl/stillhyper" target="_blank" rel="noopener" class="vault-card status-released" data-song="Still Hyper HeyPercentage Out Now">
+            <img src="Still Hyper.jpg" alt="Still Hyper" class="vault-cover">
+            <div class="vault-info">
+                <h4>Still Hyper</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/pintentions" target="_blank" rel="noopener" class="vault-card status-released" data-song="Intentions HeyPercentage Out Now">
+            <img src="Intentions.jpg" alt="Intentions" class="vault-cover">
+            <div class="vault-info">
+                <h4>Intentions</h4> <h6>(ft. 6xnjaa)</h6>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/stillchoseyou" target="_blank" rel="noopener" class="vault-card status-released" data-song="Still Chose You HeyPercentage Out Now">
+            <img src="Still Chose You.jpg" alt="Still Chose You" class="vault-cover">
+            <div class="vault-info">
+                <h4>Still Chose You</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/pitsyou" target="_blank" rel="noopener" class="vault-card status-released" data-song="It's You vyxherebabe HeyPercentage Out Now">
+            <img src="It's You.jpg" alt="It's You" class="vault-cover">
+            <div class="vault-info">
+                <h4>It's You</h4> <h6>(ft. vyxherebabe)</h6>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/quebra" target="_blank" rel="noopener" class="vault-card status-released" data-song="Quebra-Quebra HeyPercentage Out Now">
+            <img src="Quebra.jpg" alt="Quebra-Quebra" class="vault-cover">
+            <div class="vault-info">
+                <h4>Quebra-Quebra</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/ponmyway" target="_blank" rel="noopener" class="vault-card status-released" data-song="On My Way HeyPercentage Out Now">
+            <img src="On My Way.jpg" alt="On My Way" class="vault-cover">
+            <div class="vault-info">
+                <h4>On My Way</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/hersmile" target="_blank" rel="noopener" class="vault-card status-released" data-song="Her Smile HeyPercentage Out Now">
+            <img src="Her Smile.jpg" alt="Her Smile" class="vault-cover">
+            <div class="vault-info">
+                <h4>Her Smile</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/whereibelong" target="_blank" rel="noopener" class="vault-card status-released" data-song="Where I Belong Luvarzy HeyPercentage Out Now">
+            <img src="Where I Belong.jpg" alt="Where I Belong" class="vault-cover">
+            <div class="vault-info">
+                <h4>Where I Belong</h4> <h6>(ft. Luvarzy)</h6>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/yfl" target="_blank" rel="noopener" class="vault-card status-released" data-song="Your Feelings HeyPercentage Out Now">
+            <img src="Your Feelings.jpg" alt="Your Feelings" class="vault-cover">
+            <div class="vault-info">
+                <h4>Your Feelings</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/pkingdom" target="_blank" rel="noopener" class="vault-card status-released" data-song="Kingdom HeyPercentage Out Now">
+            <img src="Kingdom.jpg" alt="Kingdom" class="vault-cover">
+            <div class="vault-info">
+                <h4>Kingdom</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/starwalkin" target="_blank" rel="noopener" class="vault-card status-released" data-song="StarWalkin' HeyPercentage Out Now">
+            <img src="StartWalking.jpg" alt="StarWalkin'" class="vault-cover">
+            <div class="vault-info">
+                <h4>StarWalkin'</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/kkarma" target="_blank" rel="noopener" class="vault-card status-released" data-song="Karma HeyPercentage Out Now">
+            <img src="Karma.jpg" alt="Karma" class="vault-cover">
+            <div class="vault-info">
+                <h4>Karma</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/gemstone" target="_blank" rel="noopener" class="vault-card status-released" data-song="Gemstone Sneaky Rapper Kid 42 HeyPercentage Out Now">
+            <img src="Gemstone.jpg" alt="Gemstone" class="vault-cover">
+            <div class="vault-info">
+                <h4>Gemstone</h4> <h6>(ft. Sneaky Rapper Kid 42)</h6>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/drilltopia" target="_blank" rel="noopener" class="vault-card status-released" data-song="DrillTopia HeyPercentage Out Now">
+            <img src="DrillTopia.jpg" alt="DrillTopia" class="vault-cover">
+            <div class="vault-info">
+                <h4>DrillTopia</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/feelingschange" target="_blank" rel="noopener" class="vault-card status-released" data-song="Feelings Change HeyPercentage Out Now">
+            <img src="Feelings Change.jpg" alt="Feelings Change" class="vault-cover">
+            <div class="vault-info">
+                <h4>Feelings Change</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/shockwave" target="_blank" rel="noopener" class="vault-card status-released" data-song="Shockwave HeyPercentage Out Now">
+            <img src="Shockwave.jpg" alt="Shockwave" class="vault-cover">
+            <div class="vault-info">
+                <h4>Shockwave</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/emotionallyattached" target="_blank" rel="noopener" class="vault-card status-released" data-song="Emotionally Attached HeyPercentage Out Now">
+            <img src="Emotionally Attached.jpg" alt="Emotionally Attached" class="vault-cover">
+            <div class="vault-info">
+                <h4>Emotionally Attached</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/howyoufeel" target="_blank" rel="noopener" class="vault-card status-released" data-song="How You Feel HeyPercentage Out Now">
+            <img src="How You Feel.jpg" alt="How You Feel" class="vault-cover">
+            <div class="vault-info">
+                <h4>How You Feel</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+        <a href="https://push.fm/fl/ptwilight" target="_blank" rel="noopener" class="vault-card status-released" data-song="Twilight HeyPercentage Out Now">
+            <img src="Twilight.jpg" alt="Twilight" class="vault-cover">
+            <div class="vault-info">
+                <h4>Twilight</h4>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+        
+        <a href="https://push.fm/fl/pti" target="_blank" rel="noopener" class="vault-card status-released" data-song="Trust Issues Luvarzy HeyPercentage Out Now">
+            <img src="Trust Issues.jpg" alt="Trust Issues" class="vault-cover">
+            <div class="vault-info">
+                <h4>Trust Issues</h4> <h6>(ft. Luvarzy)</h6>
+                <span class="badge">Out Now</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+                
+                <div id="noResults" style="display: none; text-align: center; margin-top: 20px; color: rgba(255,255,255,0.6);">
+                    <p>No songs found matching your search.</p>
+                </div>
+            </section>
+            
+            <section id="support" class="page-section">
+                <div class="support-card">
+                    <h2>PLEASE SUPPORT ME</h2>
+                    <p>Independently creating and mixing music requires resources. Your support directly funds studio software, equipment upgrades, and independent release distribution.</p>
+                    <a href="https://paypal.me/HeyPercentage" target="_blank" rel="noopener" class="paypal-btn">
+                        <span>Secure Support via PayPal</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 HeyPercentage. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
