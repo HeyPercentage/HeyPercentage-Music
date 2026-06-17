@@ -176,8 +176,8 @@ h2 {
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff;
+    background: rgba(4, 164, 60, 1);
+    color: #032737;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -250,6 +250,17 @@ h2 {
     padding: 15px 25px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.vault-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .vault-cover {
@@ -281,6 +292,12 @@ h2 {
     letter-spacing: 0.02px;
 }
 
+.vault-info h6 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6E75C2;
+}
+
 .badge {
     padding: 6px 14px;
     border-radius: 30px;
@@ -288,9 +305,146 @@ h2 {
     font-weight: 700;
 }
 
-.status-released .badge { background: rgba(30, 215, 96, 0.15); color: #1ed760; border: 1px solid #1ed760; }
-.status-production .badge { background: rgba(0, 180, 255, 0.15); color: #00b4ff; border: 1px solid #00b4ff; }
+.status-released .badge { background: rgba(24, 85, 46, 0.64); color: #1ed760; border: 1px solid #1ed760; }
+.status-production .badge { background: rgba(1, 1, 1, 0); color: #116BD3; border: 1px solid #0F65CE; }
 .status-teaser .badge { background: rgba(255, 255, 255, 0.1); color: rgba(255,255,255,0.6); }
+
+/* Container for the whole player */
+.custom-audio-player {
+  background-color: #16161600;
+  border: 1px solid #272A31;
+  padding: 15px;
+  border-radius: 12px;
+  width: fit-content;
+  font-family: sans-serif;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Base button styles */
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Subtle click effect */
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Skip buttons (Back/Forward 10s) */
+.skip-btn {
+  background: #28292945;
+  border: 1px solid #272A31;
+  color: white;
+  padding: 10px 16px;
+}
+
+.skip-btn:hover {
+  background: #00000000;
+}
+
+/* Play/Pause button */
+.play-btn {
+  background: rgba(29, 33, 39, 0.27);
+  border: 1px solid #272A31;
+  color: white;
+  padding: 10px 24px;
+  font-weight: bold;
+  min-width: 95px; /* Keeps the button from resizing wildly when text changes */
+}
+
+.play-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Progress bar wrapper */
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #b3b3b3;
+}
+
+.progress-container {
+  flex: 1;
+  height: 6px;
+  background: #404040;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #276EB7;
+  border-radius: 3px;
+  position: relative;
+}
+
+/* Draggable thumb dot */
+.progress-thumb {
+  width: 12px;
+  height: 12px;
+  background: #38BD3A;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Show thumb on hover or dragging */
+.progress-container:hover .progress-thumb,
+.progress-container.dragging .progress-thumb {
+  opacity: 1;
+}
+
+#waveform {
+  width: 100%;
+  height: 80px;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+
+/* Volume slider */
+.volume-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.volume-container {
+  width: 80px;
+  height: 4px;
+  background: #404040;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.volume-bar {
+  height: 100%;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 2px;
+}
 
 .newsletter-input-group {
     display: flex;
@@ -303,7 +457,7 @@ h2 {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 14px;
-    border-radius: 10px;
+    border-radius: 1px;
     color: white;
     font-size: 15px;
 }
@@ -326,41 +480,6 @@ h2 {
 
 .newsletter-input-group button:hover {
     background: #e0e0e0;
-}
-
-.paypal-btn {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    background: #0070ba;
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 20px;
-    box-shadow: 0 4px 15px rgba(0, 112, 186, 0.3);
-    transition: all 0.2s;
-}
-
-.paypal-btn:hover {
-    background: #005ea6;
-    transform: translateY(-2px);
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.3);
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-@media (max-width: 768px) {
-    .header-container { flex-direction: column; gap: 15px; }
-    .cta-group { flex-direction: column; }
-    .newsletter-input-group { flex-direction: column; }
-    .vault-info { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
 
 /* --- HYPE COUNTDOWN STYLES --- */
@@ -402,4 +521,74 @@ footer {
     color: #fff;
     letter-spacing: 1px;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.search-wrap {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+#songSearch {
+    width: 100%;
+    padding: 14px 45px 14px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#songSearch:focus {
+    border-color: #00b4ff;
+    box-shadow: 0 0 20px rgba(0, 180, 255, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+}
+
+.paypal-btn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: #0070ba;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 112, 186, 0.3);
+    transition: all 0.2s;
+}
+
+.paypal-btn:hover {
+    background: #005ea6;
+    transform: translateY(-2px);
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 15px; }
+    .cta-group { flex-direction: column; }
+    .newsletter-input-group { flex-direction: column; }
+    .vault-info { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
