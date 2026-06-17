@@ -1,7 +1,6 @@
 // ==========================================
 // 1. COUNTDOWN CLOCK
-// ==========================================
-// Set this to your next actual release date!
+//
 const targetDate = new Date("2026-06-14T20:39:00").getTime(); 
 
 const countdownInterval = setInterval(() => {
