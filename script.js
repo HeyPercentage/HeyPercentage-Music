@@ -1,6 +1,6 @@
 // ==========================================
 // 1. COUNTDOWN CLOCK
-//
+// ==========================================
 const targetDate = new Date("2026-06-14T20:39:00").getTime(); 
 
 const countdownInterval = setInterval(() => {
@@ -35,34 +35,24 @@ const countdownInterval = setInterval(() => {
 }, 1000);
 
 // ==========================================
-// 2. NAVIGATION LINKS & TAB SWITCHER
+// 2. UNIFIED NAVIGATION & TAB SWITCHER
 // ==========================================
-document.querySelectorAll('.nav-links a, a[href^="#"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-        const rawHref = this.getAttribute('href');
-        
-        // Only prevent default and switch tabs if it's an internal # link
-        if (rawHref && rawHref.startsWith('#')) {
-            e.preventDefault();
-            switchTab(rawHref.trim());
-        }
-    });
-});
-
 function switchTab(targetId) {
-    // Rely purely on your CSS .active class for smooth transitions
+    const cleanId = targetId && targetId.startsWith('#') ? targetId.trim() : '#home';
+    
+    // Toggle page sections visibility
     document.querySelectorAll('.page-section').forEach(section => {
         section.classList.remove('active');
     });
 
-    const targetElement = document.querySelector(targetId);
+    const targetElement = document.querySelector(cleanId);
     if (targetElement) {
         targetElement.classList.add('active');
     }
 
-    // Update active state on the navbar
+    // Toggle active highlighting on nav buttons
     document.querySelectorAll('.nav-links .nav-link').forEach(link => {
-        if (link.getAttribute('href') === targetId) {
+        if (link.getAttribute('href') === cleanId) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
@@ -70,39 +60,151 @@ function switchTab(targetId) {
     });
 }
 
-// ==========================================
-// 3. SONG SEARCH ENGINE
-// ==========================================
-const searchInput = document.getElementById('songSearch');
-const songCards = document.querySelectorAll('#songsGrid .vault-card');
-const noResultsMsg = document.getElementById('noResults');
-
-// Added safety check
-if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
-        let visibleCount = 0;
-        
-        songCards.forEach(card => {
-            const searchData = card.getAttribute('data-song');
-            if (!searchData) return; 
-
-            if (searchData.toLowerCase().includes(query) || query === '') {
-                card.style.display = 'flex';
-                visibleCount++;
-            } else {
-                card.style.display = 'none';
-            }
-        });
-        
-        if (visibleCount === 0 && query !== '') {
-            if (noResultsMsg) noResultsMsg.style.display = 'block';
-        } else {
-            if (noResultsMsg) noResultsMsg.style.display = 'none';
+// Global click event handler for hash routing links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const rawHref = this.getAttribute('href');
+        if (rawHref && rawHref.startsWith('#')) {
+            e.preventDefault();
+            window.location.hash = rawHref.trim();
         }
     });
+});
+
+// Sync switching with page URL transformations (Back/Forward arrows support)
+window.addEventListener('hashchange', () => switchTab(window.location.hash));
+
+// Initialize tab state on page boot
+document.addEventListener('DOMContentLoaded', () => {
+    switchTab(window.location.hash || '#home');
+});
+
+// ==========================================
+// 3. UNIFIED SONG SEARCH & FILTER ENGINE
+// ==========================================
+
+// --- ENGINE A: ALL SONGS ---
+const searchInput = document.getElementById('songSearch');
+const yearFilter = document.getElementById('year-filter');
+const typeFilter = document.getElementById('type-filter');
+const songsGrid = document.getElementById('songsGrid');
+const songItems = songsGrid ? songsGrid.querySelectorAll('.song-item') : [];
+const noResultsMessage = document.getElementById('no-results-message');
+const songCountEl = document.getElementById('song-count');
+
+function filterAllSongs() {
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    const selectedYear = yearFilter ? yearFilter.value : 'all';
+    const selectedType = typeFilter ? typeFilter.value : 'all';
+    
+    let visibleCount = 0;
+
+    songItems.forEach(song => {
+        const vaultCard = song.querySelector('.vault-card');
+        const searchData = vaultCard ? vaultCard.getAttribute('data-song') || '' : '';
+        const songYear = song.getAttribute('data-year') || '';
+        const songType = song.getAttribute('data-type') || '';
+
+        const matchesSearch = query === '' || searchData.toLowerCase().includes(query);
+        const matchesYear = selectedYear === 'all' || songYear === selectedYear;
+        const matchesType = selectedType === 'all' || songType === selectedType;
+
+        if (matchesSearch && matchesYear && matchesType) {
+            song.style.display = ''; 
+            visibleCount++;
+        } else {
+            song.style.display = 'none';
+        }
+    });
+
+    if (songCountEl) songCountEl.textContent = visibleCount;
+
+    if (visibleCount === 0) {
+        if (noResultsMessage) noResultsMessage.style.display = 'block';
+    } else {
+        if (noResultsMessage) noResultsMessage.style.display = 'none';
+    }
 }
 
+if (songCountEl) songCountEl.textContent = songItems.length;
+if (searchInput) searchInput.addEventListener('input', filterAllSongs);
+if (yearFilter) yearFilter.addEventListener('change', filterAllSongs);
+if (typeFilter) typeFilter.addEventListener('change', filterAllSongs);
+
+// --- CLEAR BUTTON: ALL SONGS ---
+const clearBtn = document.getElementById('clear-filters');
+if (clearBtn) {
+  clearBtn.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    if (yearFilter) yearFilter.value = 'all';
+    if (typeFilter) typeFilter.value = 'all';
+    filterAllSongs(); // re-run your existing function
+  });
+}
+
+// --- CLEAR BUTTON: PRODUCED SONGS ---
+const clearProducedBtn = document.getElementById('clear-produced-filters');
+if (clearProducedBtn) {
+  clearProducedBtn.addEventListener('click', () => {
+    if (producedSearchInput) producedSearchInput.value = '';
+    if (producedYearFilter) producedYearFilter.value = 'all';
+    if (producedTypeFilter) producedTypeFilter.value = 'all';
+    filterProducedSongs(); // re-run your existing function
+  });
+}
+
+// --- ENGINE B: PRODUCED SONGS ---
+const producedSearchInput = document.getElementById('producedSongSearch');
+const producedYearFilter = document.getElementById('produced-year-filter');
+const producedTypeFilter = document.getElementById('produced-type-filter');
+const producedSongsGrid = document.getElementById('producedSongsGrid');
+const producedSongItems = producedSongsGrid ? producedSongsGrid.querySelectorAll('.song-item') : [];
+const producedNoResultsMsg = document.getElementById('producedNoResults');
+const producedSongCountEl = document.getElementById('produced-song-count');
+
+function filterProducedSongs() {
+    const query = producedSearchInput ? producedSearchInput.value.toLowerCase().trim() : '';
+    const selectedYear = producedYearFilter ? producedYearFilter.value : 'all';
+    const selectedType = producedTypeFilter ? producedTypeFilter.value : 'all';
+    
+    let visibleCount = 0;
+
+    producedSongItems.forEach(song => {
+        const vaultCard = song.querySelector('.vault-card');
+        const searchData = vaultCard ? vaultCard.getAttribute('data-song') || '' : '';
+        const songYear = song.getAttribute('data-year') || '';
+        const songType = song.getAttribute('data-type') || '';
+
+        const matchesSearch = query === '' || searchData.toLowerCase().includes(query);
+        const matchesYear = selectedYear === 'all' || songYear === selectedYear;
+        const matchesType = selectedType === 'all' || songType === selectedType;
+
+        if (matchesSearch && matchesYear && matchesType) {
+            song.style.display = ''; 
+            visibleCount++;
+        } else {
+            song.style.display = 'none';
+        }
+    });
+
+    // Don't count the h2 title headers as invisible songs
+    if (producedSongCountEl) producedSongCountEl.textContent = visibleCount;
+
+    if (visibleCount === 0) {
+        if (producedNoResultsMsg) producedNoResultsMsg.style.display = 'block';
+    } else {
+        if (producedNoResultsMsg) producedNoResultsMsg.style.display = 'none';
+    }
+}
+
+if (producedSongCountEl) producedSongCountEl.textContent = producedSongItems.length;
+if (producedSearchInput) producedSearchInput.addEventListener('input', filterProducedSongs);
+if (producedYearFilter) producedYearFilter.addEventListener('change', filterProducedSongs);
+if (producedTypeFilter) producedTypeFilter.addEventListener('change', filterProducedSongs);
+
+// ==========================================
+// 4. CUSTOM AUDIO PLAYER LOGIC
+// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
   const audio = document.getElementById('myAudio');
   const playBtn = document.getElementById('playPause');
@@ -115,89 +217,116 @@ document.addEventListener('DOMContentLoaded', () => {
   const durationEl = document.getElementById('duration');
   const volumeContainer = document.getElementById('volumeContainer');
   const volumeBar = document.getElementById('volumeBar');
+  const volumeIcon = document.getElementById('volumeIcon');
+
+  if (!audio || !playBtn) return; 
 
   let isDragging = false;
 
-  // Set default volume
   audio.volume = 0.7;
-  volumeBar.style.width = '70%';
+  if (volumeBar) volumeBar.style.width = '70%';
 
-  // Play / Pause
   playBtn.addEventListener('click', togglePlay);
+  
   function togglePlay() {
     if (audio.paused) {
       audio.play();
-      playBtn.textContent = '|| Pause';
+      playBtn.innerHTML = '<i class="fa-solid fa-pause"></i> Pause';
     } else {
       audio.pause();
-      playBtn.textContent = '▶ Play';
+      playBtn.innerHTML = '<i class="fa-solid fa-play"></i> Play';
     }
   }
 
-  // Skip 10s
-  backBtn.addEventListener('click', () => audio.currentTime = Math.max(0, audio.currentTime - 10));
-  fwdBtn.addEventListener('click', () => audio.currentTime = Math.min(audio.duration, audio.currentTime + 10));
+  if (backBtn) backBtn.addEventListener('click', () => audio.currentTime = Math.max(0, audio.currentTime - 10));
+  if (fwdBtn) fwdBtn.addEventListener('click', () => audio.currentTime = Math.min(audio.duration, audio.currentTime + 10));
 
-  // Progress update
   function updateProgress() {
     if (!isNaN(audio.duration)) {
       const progress = (audio.currentTime / audio.duration) * 100;
-      progressBar.style.width = progress + '%';
-      currentTimeEl.textContent = formatTime(audio.currentTime);
+      if (progressBar) progressBar.style.width = progress + '%';
+      if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime);
     }
   }
+  
   audio.addEventListener('timeupdate', updateProgress);
-  audio.addEventListener('loadedmetadata', () => durationEl.textContent = formatTime(audio.duration));
+  audio.addEventListener('loadedmetadata', () => {
+      if (durationEl) durationEl.textContent = formatTime(audio.duration);
+  });
 
-  // Seek
   function seek(e) {
     const rect = progressContainer.getBoundingClientRect();
     const x = e.clientX - rect.left;
     audio.currentTime = (x / rect.width) * audio.duration;
   }
-  progressContainer.addEventListener('click', seek);
+  if (progressContainer) progressContainer.addEventListener('click', seek);
 
-  // Drag thumb
-  progressThumb.addEventListener('mousedown', () => {
-    isDragging = true;
-    progressContainer.classList.add('dragging');
-  });
+  if (progressThumb) {
+      progressThumb.addEventListener('mousedown', () => {
+        isDragging = true;
+        progressContainer.classList.add('dragging');
+      });
+  }
+  
   document.addEventListener('mouseup', () => {
     isDragging = false;
-    progressContainer.classList.remove('dragging');
+    if (progressContainer) progressContainer.classList.remove('dragging');
   });
+  
   document.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
+    if (!isDragging || !progressContainer) return;
     const rect = progressContainer.getBoundingClientRect();
     let x = e.clientX - rect.left;
     x = Math.max(0, Math.min(x, rect.width));
     const percent = (x / rect.width) * 100;
-    progressBar.style.width = percent + '%';
+    if (progressBar) progressBar.style.width = percent + '%';
     audio.currentTime = (percent / 100) * audio.duration;
   });
 
-  // Volume control
-  volumeContainer.addEventListener('click', (e) => {
-    const rect = volumeContainer.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const percent = x / rect.width;
-    audio.volume = percent;
-    volumeBar.style.width = percent * 100 + '%';
-  });
+  function updateVolumeUI(volumeValue) {
+      if (!volumeBar) return;
+      volumeBar.style.width = volumeValue * 100 + '%';
+      
+      if (!volumeIcon) return;
+      if (volumeValue === 0) {
+          volumeIcon.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+      } else if (volumeValue < 0.5) {
+          volumeIcon.innerHTML = '<i class="fa-solid fa-volume-low"></i>';
+      } else {
+          volumeIcon.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+      }
+  }
 
-  // Keyboard shortcuts
+  if (volumeContainer) {
+      volumeContainer.addEventListener('click', (e) => {
+        const rect = volumeContainer.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        let percent = x / rect.width;
+        percent = Math.max(0, Math.min(percent, 1));
+        audio.volume = percent;
+        updateVolumeUI(percent);
+      });
+  }
+
   document.addEventListener('keydown', (e) => {
-    if (e.target.tagName === 'INPUT') return; // ignore when typing
+    if (e.target.tagName === 'INPUT') return;
     
     if (e.code === 'Space') {
       e.preventDefault();
       togglePlay();
     }
-    if (e.code === 'ArrowLeft') audio.currentTime -= 5;
-    if (e.code === 'ArrowRight') audio.currentTime += 5;
-    if (e.code === 'ArrowUp') audio.volume = Math.min(1, audio.volume + 0.1);
-    if (e.code === 'ArrowDown') audio.volume = Math.max(0, audio.volume - 0.1);
-    volumeBar.style.width = audio.volume * 100 + '%';
+    if (e.code === 'ArrowLeft') audio.currentTime = Math.max(0, audio.currentTime - 5);
+    if (e.code === 'ArrowRight') audio.currentTime = Math.min(audio.duration, audio.currentTime + 5);
+    if (e.code === 'ArrowUp') {
+      e.preventDefault();
+      audio.volume = Math.min(1, audio.volume + 0.1);
+      updateVolumeUI(audio.volume);
+    }
+    if (e.code === 'ArrowDown') {
+      e.preventDefault();
+      audio.volume = Math.max(0, audio.volume - 0.1);
+      updateVolumeUI(audio.volume);
+    }
   });
 
   function formatTime(sec) {
