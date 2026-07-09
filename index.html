@@ -15,7 +15,7 @@
     <meta name="twitter:title" content="HeyPercentage Music">
     <meta name="twitter:description" content="HeyPercentage Website">
     <meta name="twitter:image" content="https://heypercentage.github.io/HeyPercentage-Music/preview.png">
-    
+
     <title>HeyPercentage</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -47,7 +47,7 @@
                 </nav>
             </div>
         </header>
-        
+
         <main class="content-window">
             <section id="home" class="page-section active">
                 <div class="hero-card">
@@ -61,14 +61,14 @@
                         <a href="#teasers" class="btn-secondary">Explore Teasers</a>
                     </div>
                 </div>
-                
+
                 <div class="hype-countdown-card" style="display: none;">
                     <span class="hype-label">DROP COUNTDOWN</span>
                     <h3 class="hype-track-title">Next Track Title <span class="collab">(ft. Next Artist)</span></h3>
                     <div class="countdown-digits" id="main-hype-clock">00d: 00h: 00m: 00s</div>
                 </div>
             </section>
-            
+
             <section id="socials" class="page-section">
                 <h2 class="section-title">Music Streaming</h2>
                 <div class="grid-container">
@@ -115,30 +115,30 @@
                     </a>
                 </div>
             </section>
-            
+
             <section id="teasers" class="page-section">
                 <h2 class="section-title">The Music Vault</h2>
                 <div class="vault-grid">
-                    <a href="https://push.fm/fl/your-trust-issues-link" target="_blank" rel="noopener" class="vault-card status-production">
-                        <img src="next.jpg" alt="Trust Issues" class="vault-cover">
+                    <a href="https://push.fm/fl/pvacat" target="_blank" rel="noopener" class="vault-card status-production">
+                        <img src="Vacation.jpg" alt="Vacation" class="vault-cover">
                         <div class="vault-info">
-                            <h4>Trust Issues</h4>
-                            <h6>(ft. Luvarzy)</h6>
+                            <h4>Vacation</h4>
+                            <h6>(-)</h6>
                             <h5 id="vault-countdown">Calculating...</h5>
                             <span class="badge">Next Release</span>
                         </div>
                     </a>
                 </div>
-                
+
                 <div class="custom-audio-player">
                     <audio id="myAudio" src="snipp.wav"></audio>
-                    
+
                     <div class="controls">
                         <button id="back10" class="btn skip-btn"><i class="fa-solid fa-backward"></i> 10s</button>
                         <button id="playPause" class="btn play-btn"><i class="fa-solid fa-play"></i> Play</button>
                         <button id="fwd10" class="btn skip-btn">10s <i class="fa-solid fa-forward"></i></button>
                     </div>
-                    
+
                     <div class="progress-wrap">
                         <span id="currentTime">0:00</span>
                         <div class="progress-container" id="progressContainer">
@@ -147,7 +147,7 @@
                         </div>
                         <span id="duration">0:00</span>
                     </div>
-                    
+
                     <div class="volume-wrap">
                         <span id="volumeIcon"><i class="fa-solid fa-volume-low"></i></span>
                         <div class="volume-container" id="volumeContainer">
@@ -156,15 +156,15 @@
                     </div>
                 </div>
             </section>
-            
+
             <section id="all-songs" class="page-section">
                 <h2 class="section-title">All Songs (<span id="song-count">0</span>)</h2>
-                
+
                 <div class="search-wrap">
                     <input type="text" id="songSearch" placeholder="Search song or artist">
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 </div>
-                
+
                 <div class="filter-container">
                     <select id="year-filter">
                         <option value="all">All Years</option>
@@ -172,24 +172,24 @@
                         <option value="2025">2025</option>
                         <option value="2024">2024</option>
                     </select>
-                    
+
                     <select id="type-filter">
                         <option value="all">All Types</option>
                         <option value="Single">Single</option>
                         <option value="EP">EP</option>
                         <option value="Album">Album</option>
                     </select>
-                    
+
 <button type="button" id="clear-filters" class="clear-btn">clear</button>                    
                 </div>
-                
+
                 <div id="no-results-message" style="display: none; text-align: center; margin-top: 20px;">
                     <h3>No songs found</h3>
                     <p>Try changing the year or type to see more music.</p>
                 </div>
-                
+
                 <div class="vault-grid" id="songsGrid">
-                    
+
                     <div class="song-item" data-year="2025" data-type="EP">
                         <a href="https://push.fm/fl/stillhyper" target="_blank" rel="noopener" class="vault-card status-released" data-song="Still Hyper HeyPercentage Out Now">
                             <img src="Still Hyper.jpg" alt="Still Hyper" class="vault-cover">
@@ -199,7 +199,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2025" data-type="Single">
                         <a href="https://push.fm/fl/pintentions" target="_blank" rel="noopener" class="vault-card status-released" data-song="Intentions HeyPercentage Out Now">
                             <img src="Intentions.jpg" alt="Intentions" class="vault-cover">
@@ -210,7 +210,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2026" data-type="EP">
                         <a href="https://push.fm/fl/stillchoseyou" target="_blank" rel="noopener" class="vault-card status-released" data-song="Still Chose You HeyPercentage Out Now">
                             <img src="Still Chose You.jpg" alt="Still Chose You" class="vault-cover">
@@ -220,7 +220,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2026" data-type="Single">
                         <a href="https://push.fm/fl/pitsyou" target="_blank" rel="noopener" class="vault-card status-released" data-song="It's You vyxherebabe HeyPercentage Out Now">
                             <img src="It's You.jpg" alt="It's You" class="vault-cover">
@@ -231,7 +231,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2026" data-type="Single">
                         <a href="https://push.fm/fl/quebra" target="_blank" rel="noopener" class="vault-card status-released" data-song="Quebra-Quebra HeyPercentage Out Now">
                             <img src="Quebra.jpg" alt="Quebra-Quebra" class="vault-cover">
@@ -241,7 +241,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2026" data-type="Single">
                         <a href="https://push.fm/fl/ponmyway" target="_blank" rel="noopener" class="vault-card status-released" data-song="On My Way HeyPercentage Out Now">
                             <img src="On My Way.jpg" alt="On My Way" class="vault-cover">
@@ -251,7 +251,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2026" data-type="Single">
                         <a href="https://push.fm/fl/hersmile" target="_blank" rel="noopener" class="vault-card status-released" data-song="Her Smile HeyPercentage Out Now">
                             <img src="Her Smile.jpg" alt="Her Smile" class="vault-cover">
@@ -262,7 +262,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2026" data-type="Single">
                         <a href="https://push.fm/fl/whereibelong" target="_blank" rel="noopener" class="vault-card status-released" data-song="Where I Belong Luvarzy HeyPercentage Out Now">
                             <img src="Where I Belong.jpg" alt="Where I Belong" class="vault-cover">
@@ -274,7 +274,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2026" data-type="Single">
                         <a href="https://push.fm/fl/yfl" target="_blank" rel="noopener" class="vault-card status-released" data-song="Your Feelings HeyPercentage Out Now">
                             <img src="Your Feelings.jpg" alt="Your Feelings" class="vault-cover">
@@ -285,7 +285,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2025" data-type="Album">
                         <a href="https://push.fm/fl/pkingdom" target="_blank" rel="noopener" class="vault-card status-released" data-song="Kingdom HeyPercentage Out Now">
                             <img src="Kingdom.jpg" alt="Kingdom" class="vault-cover">
@@ -296,7 +296,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2025" data-type="Single">
                         <a href="https://push.fm/fl/starwalkin" target="_blank" rel="noopener" class="vault-card status-released" data-song="StarWalkin' HeyPercentage Out Now">
                             <img src="StartWalking.jpg" alt="StarWalkin'" class="vault-cover">
@@ -307,7 +307,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2025" data-type="Single">
                         <a href="https://push.fm/fl/kkarma" target="_blank" rel="noopener" class="vault-card status-released" data-song="Karma HeyPercentage Out Now">
                             <img src="Karma.jpg" alt="Karma" class="vault-cover">
@@ -318,7 +318,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2025" data-type="Single">
                         <a href="https://push.fm/fl/gemstone" target="_blank" rel="noopener" class="vault-card status-released" data-song="Gemstone Sneaky Rapper Kid 42 HeyPercentage Out Now">
                             <img src="Gemstone.jpg" alt="Gemstone" class="vault-cover">
@@ -330,7 +330,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2025" data-type="EP">
                         <a href="https://push.fm/fl/drilltopia" target="_blank" rel="noopener" class="vault-card status-released" data-song="DrillTopia HeyPercentage Out Now">
                             <img src="DrillTopia.jpg" alt="DrillTopia" class="vault-cover">
@@ -341,7 +341,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2025" data-type="Single">
                         <a href="https://push.fm/fl/feelingschange" target="_blank" rel="noopener" class="vault-card status-released" data-song="Feelings Change HeyPercentage Out Now">
                             <img src="Feelings Change.jpg" alt="Feelings Change" class="vault-cover">
@@ -352,7 +352,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2024" data-type="Single">
                         <a href="https://push.fm/fl/shockwave" target="_blank" rel="noopener" class="vault-card status-released" data-song="Shockwave HeyPercentage Out Now">
                             <img src="Shockwave.jpg" alt="Shockwave" class="vault-cover">
@@ -363,7 +363,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2026" data-type="Single">
                         <a href="https://push.fm/fl/emotionallyattached" target="_blank" rel="noopener" class="vault-card status-released" data-song="Emotionally Attached HeyPercentage Out Now">
                             <img src="Emotionally Attached.jpg" alt="Emotionally Attached" class="vault-cover">
@@ -374,7 +374,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2025" data-type="Single">
                         <a href="https://push.fm/fl/howyoufeel" target="_blank" rel="noopener" class="vault-card status-released" data-song="How You Feel HeyPercentage Out Now">
                             <img src="How You Feel.png" alt="How You Feel" class="vault-cover">
@@ -385,7 +385,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2026" data-type="Single">
                         <a href="https://push.fm/fl/ptwilight" target="_blank" rel="noopener" class="vault-card status-released" data-song="Twilight HeyPercentage Out Now">
                             <img src="Twilight.jpg" alt="Twilight" class="vault-cover">
@@ -396,7 +396,7 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <div class="song-item" data-year="2026" data-type="Single">
                         <a href="https://push.fm/fl/pti" target="_blank" rel="noopener" class="vault-card status-released" data-song="Trust Issues Luvarzy HeyPercentage Out Now">
                             <img src="Trust Issues.jpg" alt="Trust Issues" class="vault-cover">
@@ -408,19 +408,19 @@
                             </div>
                         </a>
                     </div>
-                    
+
                 </div>
-                
+
             </section>
-            
+
             <section id="produced" class="page-section">
                 <h2 class="section-title"> Songs (<span id="produced-song-count">0</span>)</h2>
-                
+
                 <div class="search-wrap">
                     <input type="text" id="producedSongSearch" placeholder="Search song or artist">
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 </div>
-                
+
                 <div class="filter-container">
                     <select id="produced-year-filter">
                         <option value="all">All Years</option>
@@ -428,25 +428,25 @@
                         <option value="2025">2025</option>
                         <option value="2024">2024</option>
                     </select>
-                    
+
                     <select id="produced-type-filter">
                         <option value="all">All Types</option>
                         <option value="Single">Single</option>
                         <option value="EP">EP</option>
                         <option value="Album">Album</option>
                     </select>
-                    
+
 <button type="button" id="clear-produced-filters" class="clear-btn">clear</button>                    
                 </div>
-                
+
                 <div id="producedNoResults" style="display: none; text-align: center; margin-top: 20px;">
                     <h3>No songs found</h3>
                     <p>Try changing the year or type to see more music.</p>
                 </div>
-                
+
 <div class="vault-grid" id="producedSongsGrid">
 <h2 class="separate-title">Featured</h2>
-                    
+
 <div class="song-item" data-year="2026" data-type="Single">
 <a href="https://on.soundcloud.com/q8kSPuV65N7dLOrnCE" target="_blank" rel="noopener" class="vault-card status-released" data-song="Suara Hatiku HeyPercentage AREUDIE Out Now">
                             <img src="logo.png" alt="Suara Hatiku" class="vault-cover">
@@ -456,9 +456,9 @@
                             </div>
                         </a>
                     </div>
-                    
+
                     <h2 class="separate-title">Produced</h2>
-                    
+
                     <div class="song-item" data-year="2026" data-type="Single">
                         <a href="https://open.spotify.com/track/1kHnZfuLnqlKbWjlXULbZy?si=nlyZWuWUS-KEg8XIKzxZjg%0A" target="_blank" rel="noopener" class="vault-card status-released" data-song="London HeyPercentage LuvUnFxd 734Nyki Out Now">
                             <img src="logo.png" alt="London" class="vault-cover">
@@ -470,7 +470,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <section id="support" class="page-section">
                 <div class="support-card">
                     <h2>PLEASE SUPPORT ME</h2>
@@ -478,25 +478,25 @@
                     <a href="https://paypal.me/HeyPercentage" target="_blank" rel="noopener" class="paypal-btn">
                         <div class="tile-icon"><i class="fa-brands fa-paypal"></i>
                         </div>
-                        
+
                         <span>Support via PayPal</span>
                     </a>
-                    
+
 <a href="https://www.patreon.com/c/HeyPercentage" target="_blank" rel="noopener" class="patreon-btn"> <div class="tile-icon"><i class="fa-brands fa-patreon"></i>
                         </div>
                         <span>Support via Patreon</span>
                     </a> 
-                
+
  <h1> Thank You For Visiting. Your Luck Increased by 100%</h1>                
                 </div>
             </section>
         </main>
-        
+
         <footer>
             <p>&copy; 2026 HeyPercentage. All rights reserved.</p>
         </footer>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 
