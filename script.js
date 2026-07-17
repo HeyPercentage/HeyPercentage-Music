@@ -1,7 +1,7 @@
 // ==========================================
 // 1. COUNTDOWN CLOCK
 // ==========================================
-const targetDate = new Date("2026-07-18T05:00:00").getTime(); 
+const targetDate = new Date("2026-07-21T16:00:00").getTime(); 
 
 const countdownInterval = setInterval(() => {
     const now = new Date().getTime();
