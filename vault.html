@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="HeyPercentage's next release and music previews">
+    <meta name="keywords" content="HeyPercentage, music, producer, songwriter, singer, artist, vault, teaser">
+    <meta name="theme-color" content="#050508">
+
+    <meta property="og:title" content="HeyPercentage Music — The Vault">
+    <meta property="og:description" content="HeyPercentage's Website">
+    <meta property="og:image" content="https://heypercentage.github.io/HeyPercentage-Music/preview.png">
+    <meta property="og:url" content="https://heypercentage.github.io/HeyPercentage-Music/vault.html">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HeyPercentage Music — The Vault">
+    <meta name="twitter:description" content="HeyPercentage Website">
+    <meta name="twitter:image" content="https://heypercentage.github.io/HeyPercentage-Music/preview.png">
+
+    <title>The Vault — HeyPercentage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+</head>
+
+<body>
+    <div class="live-wallpaper"></div>
+
+    <div class="interface-wrapper">
+        <header>
+            <div class="header-container">
+                <div id="branding">
+                    <img src="logo.png" alt="HeyPercentage Logo" class="logo">
+                    <h1><span class="highlight">Hey</span>Percentage</h1>
+                </div>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link home">Home</a>
+                    <a href="socials.html" class="nav-link socials">Streaming &amp; Socials</a>
+                    <a href="songs.html" class="nav-link songs">All Songs</a>
+                    <a href="produced.html" class="nav-link produced">Produced / Featured</a>
+                    <a href="vault.html" class="nav-link vault">The Vault</a>
+                    <a href="support.html" class="nav-link support">Support</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="content-window">
+            <section id="teasers">
+                <h2 class="section-title">The Music Vault</h2>
+
+                <div class="vault-grid">
+                    <a href="https://push.fm/fl/pvacat" target="_blank" rel="noopener" class="vault-card status-production">
+                        <img src="Vacation.jpg" alt="Vacation" class="vault-cover">
+                        <div class="vault-info">
+                            <div class="vault-info-text">
+                                <h4>Vacation</h4>
+                                <h6>(-)</h6>
+                                <h5 id="vault-countdown">Calculating...</h5>
+                            </div>
+                            <span class="badge">Next Release</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="custom-audio-player">
+                    <audio id="myAudio" src="snipp.wav" preload="metadata"></audio>
+
+                    <div class="controls">
+                        <button id="back10" class="btn skip-btn" aria-label="Back 10 seconds"><i class="fa-solid fa-backward"></i> 10s</button>
+                        <button id="playPause" class="btn play-btn" aria-label="Play / pause"><i class="fa-solid fa-play"></i> Play</button>
+                        <button id="fwd10" class="btn skip-btn" aria-label="Forward 10 seconds">10s <i class="fa-solid fa-forward"></i></button>
+                    </div>
+
+                    <div class="progress-wrap">
+                        <span id="currentTime">0:00</span>
+                        <div class="progress-container" id="progressContainer">
+                            <div class="progress-bar" id="progressBar"></div>
+                            <div class="progress-thumb" id="progressThumb"></div>
+                        </div>
+                        <span id="duration">0:00</span>
+                    </div>
+
+                    <div class="volume-wrap">
+                        <span id="volumeIcon"><i class="fa-solid fa-volume-low"></i></span>
+                        <div class="volume-container" id="volumeContainer">
+                            <div class="volume-bar" id="volumeBar"></div>
+                            <canvas id="visualizer"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 HeyPercentage. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/countdown.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/register-sw.js"></script>
+</body>
+
+</html>

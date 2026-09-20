@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="All songs by HeyPercentage">
+    <meta name="keywords" content="HeyPercentage, music, producer, songwriter, singer, artist, songs, discography">
+    <meta name="theme-color" content="#050508">
+
+    <meta property="og:title" content="HeyPercentage Music — All Songs">
+    <meta property="og:description" content="HeyPercentage's Website">
+    <meta property="og:image" content="https://heypercentage.github.io/HeyPercentage-Music/preview.png">
+    <meta property="og:url" content="https://heypercentage.github.io/HeyPercentage-Music/songs.html">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HeyPercentage Music — All Songs">
+    <meta name="twitter:description" content="HeyPercentage Website">
+    <meta name="twitter:image" content="https://heypercentage.github.io/HeyPercentage-Music/preview.png">
+
+    <title>All Songs — HeyPercentage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+</head>
+
+<body>
+    <div class="live-wallpaper"></div>
+
+    <div class="interface-wrapper">
+        <header>
+            <div class="header-container">
+                <div id="branding">
+                    <img src="logo.png" alt="HeyPercentage Logo" class="logo">
+                    <h1><span class="highlight">Hey</span>Percentage</h1>
+                </div>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link home">Home</a>
+                    <a href="socials.html" class="nav-link socials">Streaming &amp; Socials</a>
+                    <a href="songs.html" class="nav-link songs">All Songs</a>
+                    <a href="produced.html" class="nav-link produced">Produced / Featured</a>
+                    <a href="vault.html" class="nav-link vault">The Vault</a>
+                    <a href="support.html" class="nav-link support">Support</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="content-window">
+            <section id="all-songs">
+                <h2 class="section-title">All Songs (<span id="song-count">0</span>)</h2>
+
+                <div class="search-wrap">
+                    <input type="text" id="songSearch" placeholder="Search song or artist">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                </div>
+
+                <div class="filter-container">
+                    <select id="year-filter" aria-label="Filter by year">
+                        <option value="all">All Years</option>
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                    </select>
+
+                    <select id="type-filter" aria-label="Filter by type">
+                        <option value="all">All Types</option>
+                        <option value="Single">Single</option>
+                        <option value="EP">EP</option>
+                        <option value="Album">Album</option>
+                    </select>
+
+                    <button type="button" id="clear-filters" class="clear-btn">Clear</button>
+                </div>
+
+                <div id="no-results-message" class="no-results">
+                    <h3>No songs found</h3>
+                    <p>Try changing the year or type to see more music.</p>
+                </div>
+
+                <div class="vault-grid" id="songsGrid">
+
+                    <div class="song-item" data-year="2025" data-type="EP">
+                        <a href="https://push.fm/fl/stillhyper" target="_blank" rel="noopener" class="vault-card status-released" data-song="Still Hyper HeyPercentage Out Now">
+                            <img src="Still Hyper.jpg" alt="Still Hyper" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Still Hyper</h4><span class="track-count">EP • 7 Tracks • 2025</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2025" data-type="Single">
+                        <a href="https://push.fm/fl/pintentions" target="_blank" rel="noopener" class="vault-card status-released" data-song="Intentions HeyPercentage Out Now">
+                            <img src="Intentions.jpg" alt="Intentions" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Intentions</h4>
+                                <h6>(ft. 6xnjaa)</h6> <span class="track-count">Single • 1 Track • 2025</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2026" data-type="EP">
+                        <a href="https://push.fm/fl/stillchoseyou" target="_blank" rel="noopener" class="vault-card status-released" data-song="Still Chose You HeyPercentage Out Now">
+                            <img src="Still Chose You.jpg" alt="Still Chose You" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Still Chose You</h4> <span class="track-count">EP • 6 Tracks • 2026</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2026" data-type="Single">
+                        <a href="https://push.fm/fl/pitsyou" target="_blank" rel="noopener" class="vault-card status-released" data-song="It's You vyxherebabe HeyPercentage Out Now">
+                            <img src="It's You.jpg" alt="It's You" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>It's You</h4>
+                                <h6>(ft. vyxherebabe)</h6> <span class="track-count">Single • 2 Tracks • 2026</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2026" data-type="Single">
+                        <a href="https://push.fm/fl/quebra" target="_blank" rel="noopener" class="vault-card status-released" data-song="Quebra-Quebra HeyPercentage Out Now">
+                            <img src="Quebra.jpg" alt="Quebra-Quebra" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Quebra-Quebra</h4> <span class="track-count">Single • 1 Track • 2026</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2026" data-type="Single">
+                        <a href="https://push.fm/fl/ponmyway" target="_blank" rel="noopener" class="vault-card status-released" data-song="On My Way HeyPercentage Out Now">
+                            <img src="On My Way.jpg" alt="On My Way" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>On My Way</h4> <span class="track-count">Single • 1 Track • 2026</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2026" data-type="Single">
+                        <a href="https://push.fm/fl/hersmile" target="_blank" rel="noopener" class="vault-card status-released" data-song="Her Smile HeyPercentage Out Now">
+                            <img src="Her Smile.jpg" alt="Her Smile" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Her Smile</h4>
+                                <span class="track-count">Single • 1 Track • 2026</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2026" data-type="Single">
+                        <a href="https://push.fm/fl/whereibelong" target="_blank" rel="noopener" class="vault-card status-released" data-song="Where I Belong Luvarzy HeyPercentage Out Now">
+                            <img src="Where I Belong.jpg" alt="Where I Belong" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Where I Belong</h4>
+                                <h6>(ft. Luvarzy)</h6>
+                                <span class="track-count">Single • 1 Track • 2026</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2026" data-type="Single">
+                        <a href="https://push.fm/fl/yfl" target="_blank" rel="noopener" class="vault-card status-released" data-song="Your Feelings HeyPercentage Out Now">
+                            <img src="Your Feelings.jpg" alt="Your Feelings" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Your Feelings</h4>
+                                <span class="track-count">Single • 2 Tracks • 2026</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2025" data-type="Album">
+                        <a href="https://push.fm/fl/pkingdom" target="_blank" rel="noopener" class="vault-card status-released" data-song="Kingdom HeyPercentage Out Now">
+                            <img src="Kingdom.jpg" alt="Kingdom" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Kingdom</h4>
+                                <span class="track-count">Album • 11 Tracks • 2025</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2025" data-type="Single">
+                        <a href="https://push.fm/fl/starwalkin" target="_blank" rel="noopener" class="vault-card status-released" data-song="StarWalkin' HeyPercentage Out Now">
+                            <img src="StartWalking.jpg" alt="StarWalkin'" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>StarWalkin'</h4>
+                                <span class="track-count">Single • 1 Track • 2025</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2025" data-type="Single">
+                        <a href="https://push.fm/fl/kkarma" target="_blank" rel="noopener" class="vault-card status-released" data-song="Karma HeyPercentage Out Now">
+                            <img src="Karma.jpg" alt="Karma" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Karma</h4>
+                                <span class="track-count">Single • 1 Track • 2025</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2025" data-type="Single">
+                        <a href="https://push.fm/fl/gemstone" target="_blank" rel="noopener" class="vault-card status-released" data-song="Gemstone Sneaky Rapper Kid 42 HeyPercentage Out Now">
+                            <img src="Gemstone.jpg" alt="Gemstone" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Gemstone</h4>
+                                <h6>(ft. Sneaky Rapper Kid 42)</h6>
+                                <span class="track-count">Single • 1 Track • 2025</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2025" data-type="EP">
+                        <a href="https://push.fm/fl/drilltopia" target="_blank" rel="noopener" class="vault-card status-released" data-song="DrillTopia HeyPercentage Out Now">
+                            <img src="DrillTopia.jpg" alt="DrillTopia" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>DrillTopia</h4>
+                                <span class="track-count">EP • 7 Tracks • 2025</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2025" data-type="Single">
+                        <a href="https://push.fm/fl/feelingschange" target="_blank" rel="noopener" class="vault-card status-released" data-song="Feelings Change HeyPercentage Out Now">
+                            <img src="Feelings Change.jpg" alt="Feelings Change" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Feelings Change</h4>
+                                <span class="track-count">Single • 1 Track • 2025</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2024" data-type="Single">
+                        <a href="https://push.fm/fl/shockwave" target="_blank" rel="noopener" class="vault-card status-released" data-song="Shockwave HeyPercentage Out Now">
+                            <img src="Shockwave.jpg" alt="Shockwave" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Shockwave</h4>
+                                <span class="track-count">Single • 1 Track • 2024</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2026" data-type="Single">
+                        <a href="https://push.fm/fl/emotionallyattached" target="_blank" rel="noopener" class="vault-card status-released" data-song="Emotionally Attached HeyPercentage Out Now">
+                            <img src="Emotionally Attached.jpg" alt="Emotionally Attached" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Emotionally Attached</h4>
+                                <span class="track-count">Single • 1 Track • 2026</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2025" data-type="Single">
+                        <a href="https://push.fm/fl/howyoufeel" target="_blank" rel="noopener" class="vault-card status-released" data-song="How You Feel HeyPercentage Out Now">
+                            <img src="How You Feel.png" alt="How You Feel" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>How You Feel</h4>
+                                <span class="track-count">Single • 1 Track • 2025</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2026" data-type="Single">
+                        <a href="https://push.fm/fl/ptwilight" target="_blank" rel="noopener" class="vault-card status-released" data-song="Twilight HeyPercentage Out Now">
+                            <img src="Twilight.jpg" alt="Twilight" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Twilight</h4>
+                                <span class="track-count">Single • 1 Track • 2026</span>
+                                <span class="badge">Out Now</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="song-item" data-year="2026" data-type="Single">
+                        <a href="https://push.fm/fl/pti" target="_blank" rel="noopener" class="vault-card status-released" data-song="Trust Issues Luvarzy HeyPercentage Out Now">
+                            <img src="Trust Issues.jpg" alt="Trust Issues" class="vault-cover">
+                            <div class="vault-info">
+                                <h4>Trust Issues</h4>
+                                <h6>(ft. Luvarzy)</h6>
+                                <span class="track-count">Single • 1 Track • 2026</span>
+                           </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 HeyPercentage. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/songs-filter.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/register-sw.js"></script>
+</body>
+
+</html>

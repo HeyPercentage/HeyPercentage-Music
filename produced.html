@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Songs HeyPercentage has produced or been featured on">
+    <meta name="keywords" content="HeyPercentage, music, producer, songwriter, singer, artist, produced, featured">
+    <meta name="theme-color" content="#050508">
+
+    <meta property="og:title" content="HeyPercentage Music — Produced / Featured">
+    <meta property="og:description" content="HeyPercentage's Website">
+    <meta property="og:image" content="https://heypercentage.github.io/HeyPercentage-Music/preview.png">
+    <meta property="og:url" content="https://heypercentage.github.io/HeyPercentage-Music/produced.html">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HeyPercentage Music — Produced / Featured">
+    <meta name="twitter:description" content="HeyPercentage Website">
+    <meta name="twitter:image" content="https://heypercentage.github.io/HeyPercentage-Music/preview.png">
+
+    <title>Produced / Featured — HeyPercentage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+</head>
+
+<body>
+    <div class="live-wallpaper"></div>
+
+    <div class="interface-wrapper">
+        <header>
+            <div class="header-container">
+                <div id="branding">
+                    <img src="logo.png" alt="HeyPercentage Logo" class="logo">
+                    <h1><span class="highlight">Hey</span>Percentage</h1>
+                </div>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link home">Home</a>
+                    <a href="socials.html" class="nav-link socials">Streaming &amp; Socials</a>
+                    <a href="songs.html" class="nav-link songs">All Songs</a>
+                    <a href="produced.html" class="nav-link produced">Produced / Featured</a>
+                    <a href="vault.html" class="nav-link vault">The Vault</a>
+                    <a href="support.html" class="nav-link support">Support</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="content-window">
+            <section id="produced">
+                <h2 class="section-title">Songs (<span id="produced-song-count">0</span>)</h2>
+
+                <div class="search-wrap">
+                    <input type="text" id="producedSongSearch" placeholder="Search song or artist">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                </div>
+
+                <div class="filter-container">
+                    <select id="produced-year-filter" aria-label="Filter by year">
+                        <option value="all">All Years</option>
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                    </select>
+
+                    <select id="produced-type-filter" aria-label="Filter by type">
+                        <option value="all">All Types</option>
+                        <option value="Single">Single</option>
+                        <option value="EP">EP</option>
+                        <option value="Album">Album</option>
+                    </select>
+
+                    <button type="button" id="clear-produced-filters" class="clear-btn">Clear</button>
+                </div>
+
+                <div id="producedNoResults" class="no-results">
+                    <h3>No songs found</h3>
+                    <p>Try changing the year or type to see more music.</p>
+                </div>
+
+                <div class="vault-grid" id="producedSongsGrid">
+                    <h2 class="separate-title">Featured</h2>
+
+                    <div class="song-item" data-year="2026" data-type="Single">
+                        <a href="https://on.soundcloud.com/q8kSPuV65N7dLOrnCE" target="_blank" rel="noopener" class="vault-card status-released" data-song="Suara Hatiku HeyPercentage AREUDIE Out Now">
+                            <img src="logo.png" alt="Suara Hatiku" class="vault-cover">
+                            <div class="vault-info">
+                                <div class="vault-info-text">
+                                    <h4>Suara Hatiku</h4>
+                                    <h6>By: AREUDIE</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <h2 class="separate-title">Produced</h2>
+
+                    <div class="song-item" data-year="2026" data-type="Single">
+                        <a href="https://open.spotify.com/track/1kHnZfuLnqlKbWjlXULbZy?si=nlyZWuWUS-KEg8XIKzxZjg%0A" target="_blank" rel="noopener" class="vault-card status-released" data-song="London HeyPercentage LuvUnFxd 734Nyki Out Now">
+                            <img src="logo.png" alt="London" class="vault-cover">
+                            <div class="vault-info">
+                                <div class="vault-info-text">
+                                    <h4>London</h4>
+                                    <h6>By: LuvUnFxd &amp; 734Nyki</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 HeyPercentage. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/songs-filter.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/register-sw.js"></script>
+</body>
+
+</html>

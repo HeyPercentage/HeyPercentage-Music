@@ -25,23 +25,6 @@ h2 {
     margin-bottom: 15px;
 }
 
-.support-thanks { 
-    display: block; 
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1.7;
-    color: #ffffff;
-    text-shadow: 0 0 15px rgba(0, 180, 255, 0.4);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 20px;
-    padding: 40px;
-    margin-bottom: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-}
-
 /* --------------------------------------------------------------------------
    2. BACKGROUND & LAYOUT
    -------------------------------------------------------------------------- */
@@ -74,15 +57,7 @@ h2 {
     width: 90%;
     max-width: 1000px;
     margin: 40px auto;
-}
-
-.page-section {
-    display: none;
     animation: fadeIn 0.4s ease-out forwards;
-}
-
-.page-section.active {
-    display: block;
 }
 
 @keyframes fadeIn {
@@ -776,7 +751,11 @@ header {
 }
 
 .support-thanks {
+    display: block;
     text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.7;
     color: #1ed760;
     margin-top: 20px;
 }
@@ -799,7 +778,6 @@ footer {
    10. RESPONSIVE
    -------------------------------------------------------------------------- */
 
-/* Tablets */
 @media (max-width: 900px) {
     .filter-container select,
     .clear-btn {
@@ -807,7 +785,6 @@ footer {
     }
 }
 
-/* Mobile phones */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
@@ -867,7 +844,6 @@ footer {
     }
 }
 
-/* Small phones */
 @media (max-width: 600px) {
     .filter-container {
         flex-direction: column;
@@ -884,7 +860,6 @@ footer {
     }
 }
 
-/* Very small phones */
 @media (max-width: 380px) {
     .grid-container {
         grid-template-columns: 1fr;
