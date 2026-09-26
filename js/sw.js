@@ -23,6 +23,8 @@ const CORE_ASSETS = [
     'favicon-32x32.png',
     'favicon-16x16.png',
     'apple-touch-icon.png',
+    'icons/icon-192.png',
+    'icons/icon-512.png',
 ];
 
 self.addEventListener('install', (event) => {
