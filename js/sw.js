@@ -2,7 +2,7 @@
 // SERVICE WORKER — app-shell caching so the site is installable
 // ==========================================================
 
-const CACHE_VERSION = 'heypercentage-v1';
+const CACHE_VERSION = 'heypercentage-v6';
 
 const CORE_ASSETS = [
     'index.html',
@@ -15,9 +15,20 @@ const CORE_ASSETS = [
     'js/nav.js',
     'js/countdown.js',
     'js/songs-filter.js',
+    'js/song-links.js',
+    'js/platform-picker.js',
     'js/player.js',
     'js/register-sw.js',
+    'js/bg-audio.js',
     'site.webmanifest',
+    'vendor/fontawesome/css/all.min.css',
+    'fonts/dm-sans-200.woff2',
+    'fonts/dm-sans-400.woff2',
+    'fonts/dm-sans-500.woff2',
+    'fonts/dm-sans-600.woff2',
+    'fonts/dm-sans-700.woff2',
+    'fonts/dm-sans-800.woff2',
+    'fonts/dm-sans-900.woff2',
     'logo.png',
     'favicon.ico',
     'favicon-32x32.png',

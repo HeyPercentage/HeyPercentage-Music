@@ -1,3 +1,12 @@
+/* Self-hosted DM Sans (latin). Files go in /fonts/ */
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 200; font-display: swap; src: url('fonts/dm-sans-200.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/dm-sans-400.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/dm-sans-500.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/dm-sans-600.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/dm-sans-700.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 800; font-display: swap; src: url('fonts/dm-sans-800.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 900; font-display: swap; src: url('fonts/dm-sans-900.woff2') format('woff2'); }
+
 *,
 *::before,
 *::after {
@@ -63,6 +72,48 @@ h2 {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   2b. ENTER OVERLAY + AUDIO TOGGLE
+   -------------------------------------------------------------------------- */
+
+.enter-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(4, 4, 8, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-align: center;
+    cursor: pointer;
+    transition: opacity 0.4s ease;
+}
+
+.enter-overlay.overlay-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.enter-content .enter-logo {
+    width: 90px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px rgba(0, 180, 255, 0.5));
+}
+
+.enter-content h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.enter-content p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* --------------------------------------------------------------------------
@@ -444,10 +495,10 @@ header {
    -------------------------------------------------------------------------- */
 
 .custom-audio-player {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(20, 20, 24, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 20px;
+    border-radius: 20px;
+    padding: 18px 20px;
     width: 100%;
     max-width: 500px;
     margin: 20px auto;
@@ -455,11 +506,110 @@ header {
     -webkit-backdrop-filter: blur(10px);
 }
 
-.controls {
+.player-header {
     display: flex;
-    gap: 12px;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.player-art {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.player-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.player-title {
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.play-circle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #00b4ff;
+    color: #000;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.play-circle:hover {
+    background: #33c3ff;
+}
+
+.play-circle:active {
+    transform: scale(0.94);
+}
+
+.waveform-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wave-time {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+}
+
+.waveform-container {
+    position: relative;
+    flex: 1;
+    height: 44px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.03);
+    touch-action: none;
+}
+
+.waveform-container canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.playhead {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 2px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+}
+
+.player-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 16px;
 }
 
 .btn {
@@ -481,96 +631,57 @@ header {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
-    padding: 10px 16px;
+    padding: 8px 14px;
+    font-size: 13px;
 }
 
 .skip-btn:hover {
     background: rgba(255, 255, 255, 0.12);
 }
 
-.play-btn {
-    background: #00b4ff;
-    border: 1px solid rgba(0, 180, 255, 0.2);
-    color: #000;
-    padding: 10px 24px;
-    font-weight: bold;
-    min-width: 105px;
-    justify-content: center;
-}
-
-.play-btn:hover {
-    background: #33c3ff;
-}
-
-.progress-wrap {
+.volume-stepper {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 15px;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.6);
+    gap: 8px;
 }
 
-.progress-container {
-    flex: 1;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-    cursor: pointer;
-    position: relative;
-}
-
-.progress-bar {
-    height: 100%;
-    width: 0%;
-    background: #00b4ff;
-    border-radius: 3px;
-    position: relative;
-}
-
-.progress-thumb {
-    width: 12px;
-    height: 12px;
-    background: #ffffff;
+.vol-btn {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
     border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    right: -6px;
-    transform: translateY(-50%);
-    opacity: 0;
-    transition: opacity 0.2s;
-    box-shadow: 0 0 8px #00b4ff;
-}
-
-.progress-container:hover .progress-thumb,
-.progress-container.dragging .progress-thumb {
-    opacity: 1;
-}
-
-.volume-wrap {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 11px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 15px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.volume-container {
-    width: 100px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
+    justify-content: center;
     cursor: pointer;
-    position: relative;
+    transition: background 0.2s ease;
 }
 
-.volume-bar {
-    height: 100%;
-    width: 100%;
-    background: #FFFFFF;
+.vol-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.vol-btn:active {
+    transform: scale(0.92);
+}
+
+.volume-track {
+    width: 48px;
+    height: 4px;
     border-radius: 2px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.volume-fill {
+    height: 100%;
+    width: 70%;
+    border-radius: 2px;
+    background: #00b4ff;
+    transition: width 0.15s ease;
 }
 
 /* --------------------------------------------------------------------------
@@ -834,13 +945,17 @@ footer {
         align-self: flex-start;
     }
 
-    .custom-audio-player .controls {
+    .player-controls-row {
         gap: 8px;
     }
 
-    .btn {
-        padding: 8px 12px;
-        font-size: 0.9rem;
+    .skip-btn {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    .volume-track {
+        width: 38px;
     }
 }
 
@@ -868,4 +983,99 @@ footer {
     .hero-card h1 {
         font-size: 2rem;
     }
+}
+
+/* Platform picker (songs page) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.platform-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    padding: 0 6px;
+}
+
+.platform-select {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 1 1 auto;
+    min-width: 0;
+    background-color: rgba(255, 255, 255, 0.03);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1em;
+    color: #f1f1f1;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 9px 2.2rem 9px 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.platform-select option {
+    background: #111;
+    color: #f1f1f1;
+}
+
+.platform-select:focus-visible,
+.platform-go:focus-visible {
+    outline: none;
+    border-color: #2A14EA;
+    box-shadow: 0 0 0 3px rgba(0, 134, 245, 0.35);
+}
+
+.platform-go {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 20px;
+    border-radius: 10px;
+    background: rgba(24, 85, 46, 0.64);
+    border: 1px solid #1ed760;
+    color: #1ed760;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.platform-go:hover {
+    background: rgba(30, 215, 96, 0.25);
+}
+
+/* Vault: one non-clickable card + its own player per unreleased song */
+.vault-song {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vault-card-static {
+    width: 100%;
+    cursor: default;
+}
+
+.vault-card-static:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+}
+
+.vault-song .custom-audio-player {
+    margin: 12px auto 0;
+}
+
+.vault-song + .vault-song {
+    margin-top: 20px;
 }

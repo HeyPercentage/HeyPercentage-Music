@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Songs HeyPercentage has produced or been featured on">
     <meta name="keywords" content="HeyPercentage, music, producer, songwriter, singer, artist, produced, featured">
     <meta name="theme-color" content="#050508">
@@ -21,10 +21,8 @@
 
     <title>Produced / Featured — HeyPercentage</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/view-modes.css">
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -86,12 +84,12 @@
                     <p>Try changing the year or type to see more music.</p>
                 </div>
 
-                <div class="vault-grid" id="producedSongsGrid">
+                <div class="vault-grid" id="producedSongsGrid" data-view-modes>
                     <h2 class="separate-title">Featured</h2>
 
                     <div class="song-item" data-year="2026" data-type="Single">
                         <a href="https://on.soundcloud.com/q8kSPuV65N7dLOrnCE" target="_blank" rel="noopener" class="vault-card status-released" data-song="Suara Hatiku HeyPercentage AREUDIE Out Now">
-                            <img src="logo.png" alt="Suara Hatiku" class="vault-cover">
+                            <img src="artworks/Suara Hatiku.jpg" alt="Suara Hatiku" class="vault-cover" loading="lazy" decoding="async">
                             <div class="vault-info">
                                 <div class="vault-info-text">
                                     <h4>Suara Hatiku</h4>
@@ -104,7 +102,7 @@
                     <h2 class="separate-title">Produced</h2>
 
                     <div class="song-item" data-year="2026" data-type="Single">
-                        <a href="https://open.spotify.com/track/1kHnZfuLnqlKbWjlXULbZy?si=nlyZWuWUS-KEg8XIKzxZjg%0A" target="_blank" rel="noopener" class="vault-card status-released" data-song="London HeyPercentage LuvUnFxd 734Nyki Out Now">
+                        <a href="https://open.spotify.com/track/1kHnZfuLnqlKbWjlXULbZy" target="_blank" rel="noopener" class="vault-card status-released" data-song="London HeyPercentage LuvUnFxd 734Nyki Out Now">
                             <img src="logo.png" alt="London" class="vault-cover">
                             <div class="vault-info">
                                 <div class="vault-info-text">
@@ -124,6 +122,7 @@
     </div>
 
     <script src="js/songs-filter.js"></script>
+    <script src="js/view-modes.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/register-sw.js"></script>
 </body>
