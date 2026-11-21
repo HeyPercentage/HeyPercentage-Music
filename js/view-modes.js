@@ -231,15 +231,14 @@
     if (!data.length) { root.classList.add("no-slides"); return; }
 
     var els = data.map(function (d, i) {
-      var a = h("a", "hp-slide",
+      var a = h(d.link ? "a" : "div", "hp-slide",
         '<img src="' + esc(enc(d.cover)) + '" alt="' + esc(d.title) + ' artwork" ' + (i ? 'loading="lazy"' : "") + ' decoding="async">' +
         '<div class="hp-slide-cap"><span class="hp-slide-tag">' + esc(d.tag) + "</span>" +
           "<strong>" + esc(d.title) + "</strong>" +
           (d.sub ? "<em>" + esc(d.sub) + "</em>" : "") +
           (d.id ? '<span class="hp-slide-clock" data-countdown="' + esc(d.id) + '"></span>' : "") +
         "</div>");
-      a.href = d.link || "#";
-      a.target = "_blank"; a.rel = "noopener";
+      if (d.link) { a.href = d.link; a.target = "_blank"; a.rel = "noopener"; }
       a.setAttribute("aria-label", d.tag + ": " + d.title);
       slidesEl.appendChild(a);
       return a;

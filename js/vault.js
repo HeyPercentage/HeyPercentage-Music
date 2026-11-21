@@ -40,14 +40,18 @@
 
     var badge = isNext ? "Next Release" : "Upcoming";
     var sub = r.subtitle ? "<h6>" + esc(r.subtitle) + "</h6>" : "";
+    var tag = r.link ? "a" : "div";
+    var open = r.link
+      ? '<a href="' + esc(r.link) + '" target="_blank" rel="noopener" class="vault-card status-production">'
+      : '<div class="vault-card vault-card-static status-production">';
     art.innerHTML =
-      '<a href="' + esc(r.link || "#") + '" target="_blank" rel="noopener" class="vault-card status-production">' +
+      open +
         '<img src="' + esc(enc(r.cover)) + '" alt="' + esc(r.title) + ' artwork" class="vault-cover" loading="lazy" decoding="async">' +
         '<div class="vault-info"><div class="vault-info-text">' +
           "<h4>" + esc(r.title) + "</h4>" + sub +
           '<h5 data-countdown="' + esc(r.id) + '">Calculating...</h5>' +
         '</div><span class="badge">' + badge + "</span></div>" +
-      "</a>" +
+      "</" + tag + ">" +
       '<p class="hp-when" data-release-when="' + esc(r.id) + '"></p>';
 
     art.appendChild(buildPlayer(r));

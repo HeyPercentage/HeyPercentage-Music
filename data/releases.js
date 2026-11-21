@@ -23,20 +23,20 @@ window.HP_UPCOMING = [
   {
     id: "take-me-home",
     title: "Take Me Home",
-    subtitle: "(-)",
+    subtitle: "(Percentage)",
     cover: "artworks/Take Me Home.jpeg",
     snippet: "snips/takemehome.mp3",
-    link: "https://bfan.link/percudie", // TODO: check this is the Take Me Home link, it matches PERCUDIE's
-    releaseAt: "2026-11-26T00:13:00+02:00" // from your old countdown.js (00:13 South African time)
+    link: null, 
+    releaseAt: "2026-11-26T01:00:00+02:00"
   },
   {
     id: "percudie",
     title: "PERCUDIE",
-    subtitle: "(-)",
+    subtitle: "(Percentage, AREUDIE)",
     cover: "artworks/PERCUDIE.jpg",
-    snippet: null, // e.g. "snips/percudie.mp3"
+    snippet: null,
     link: "https://bfan.link/percudie",
-    releaseAt: null // e.g. "2026-12-12T12:00:00+02:00"
+    releaseAt: "2026-11-26T13:00:00+02:00" 
   }
 ];
 

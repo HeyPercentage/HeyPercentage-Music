@@ -206,7 +206,7 @@ header {
    -------------------------------------------------------------------------- */
 
 .hero-card h1 {
-    font-size: 2.4rem;
+    font-size: 2.0rem;
 }
 
 .bio-text {
@@ -353,7 +353,7 @@ header {
 }
 
 .spotify-tile:hover   { box-shadow: 0 10px 20px rgba(30, 215, 96, 0.15);  border-color: #1ed760; }
-.apple-tile:hover     { box-shadow: 0 10px 20px rgba(252, 60, 68, 0.15);  border-color: #550BD6; }
+.apple-tile:hover     { box-shadow: 0 10px 20px rgba(62, 1, 82, 0.986);  border-color: #550BD6; }
 .ytm-tile:hover       { box-shadow: 0 10px 20px rgba(255, 0, 0, 0.15);    border-color: #FF0000; }
 .instagram-tile:hover { box-shadow: 0 10px 20px rgba(255, 0, 0, 0.15);    border-color: #FF7400; }
 .youtube-tile:hover   { box-shadow: 0 10px 20px rgba(255, 0, 0, 0.15);    border-color: #FF0000; }
